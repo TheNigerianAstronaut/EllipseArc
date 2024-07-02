@@ -1,0 +1,1957 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class Image_EllipseArc</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class Image_EllipseArc</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Draws rotatable arcs, chords, segments, crescents and ellipses of  various thicknesses, including support for alpha colours</p>
+<p class="description"><p>EllipseArc attempts to address the &quot;thickness&quot; issues when drawing  arcs using built-in PHP functions like imagearc.</p><p>The following shape-types are supported</p><p><ol><li>Arcs: regular arcs with start and end angles</li><li>Chords: the inner arc tips are connected by a straight line. The
+      inner arc is not drawn.</li><li>TrueChords: an imaginary &quot;tchord&quot; line cuts the shape between the
+      outer tips. Part of the shape on either side of this line is
+      truncated. If the line crosses through the inner arc, a &quot;C&quot;
+      shape is produced, otherwise a &quot;D&quot; shape is produced.</li><li>Segments: also known as &quot;pie-slices&quot;. The start and end angles are
+      connected to the centre of the shape.</li><li>Ellipses: complete arcs whose width and height dimensions are
+      different.</li><li>Circles: complete arcs whose width and height dimensions are the
+      same.</li><li>Crescents: instead of uniform thickness within the shape, the inner
+      arc has separate width/height parameters thereby enabling a
+      crescent or &quot;eye&quot; shape to be formed.</li></ol></p><p>General features applicable to all shape-types</p><p><ol><li>Alpha colours are fully supported</li><li>Shapes can be rotated through any angle in the X-Y plane.</li><li>Shapes can be filled or just outlined</li><li>Large and small shapes are supported. Theoretically the shape has
+      to approach the sqrt(PHP_INT_MAX) limit before problems occur.
+      (However the server's memory limitations will probably kick in
+      long before then)</li><li>Shapes can be flipped horizontally around the Y-axis (the &quot;fliph&quot;
+      modifier)</li><li>Shapes can be flipped vertically around the X-axis (the &quot;flipv&quot;
+      modifier)</li><li>Shape complements can be taken (the &quot;comp&quot; modifier). In this case
+      the opposite section of the shape is drawn.</li></ol></p><p>The &quot;fliph&quot;, &quot;flipv&quot; and &quot;comp&quot; modifiers can be added       anywhere within the name of the desired shape, for example       &quot;arcflipvfliphcomp&quot; and &quot;arcfliphcompflipv&quot; will produce the       same result. They can also be added multiple times within the       same shape, however the modifier will only apply if it is       present an odd number of times in the shape's name. So       &quot;arcflipvcompfliphcompcomp&quot; will produce the same shape as the       previous two examples since the &quot;comp&quot; modifier occurs 3       times.</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Austin Ekwebelam &lt;<a href="mailto:aekwebelam@hotmail.com">aekwebelam@hotmail.com</a>&gt;</li>
+				<li><span class="field">version:</span> Release: 0.1.0</li>
+				<li><span class="field">copyright:</span> 1997-2011 The PHP Group</li>
+				<li><span class="field">link:</span> <a href="http://pear.php.net/package/EllipseArc">http://pear.php.net/package/EllipseArc</a></li>
+				<li><span class="field">todo:</span> <p>Future improvements      <ol><li>Fine-tune tchord calculations so tangents can
+          be drawn without double-filling</li><li>Fine-tune tchord calculations for unfilled shapes
+          so P and Q are guaranteed to be the best values</li><li>Fine-tune _connectDots so the pixel after ($next_x,$next_y)
+          is factored in. This will avoid double-filling in cases
+          where the slope of the line changes sign at ($next_x,$next_y)</li><li>Allow the inner arc to be offset from the centre</li><li>Smoothing the left/right edges of inner arcs.  In small arcs
+          they appear clipped.</li><li>Allow a shape to truncate parts of the ellipse.
+          For example a rectangle can be inscribed in the
+          ellipse, so only the area outside the rectangle
+          gets drawn.</li></ol></p><p>PHP version 5</p><p>LICENSE: This source file is subject to version 3.01 of the PHP license  that is available through the world-wide-web at the following URI:  http://www.php.net/license/3_01.txt.  If you did not receive a copy of  the PHP License and are unable to obtain it through the web, please  send a note to license@php.net so we can mail you a copy immediately.</p></li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">license:</span> <a href="http://www.php.net/license/3_01.txt">PHP License 3.01</a></li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_EllipseArc.php.html">/EllipseArc.php</a> (line <span class="field">391</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																<div class="var-title">
+					<span class="var-type">int</span>
+					<a href="#$_errors" title="details" class="var-name">$_errors</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$_shape" title="details" class="var-name">$_shape</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																																																																																																																																																												
+												<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type">resource</span>&nbsp;<span class="var-name">&$image</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$centre_x</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$centre_y</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$outer_width</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$outer_height</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$start_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$end_angle</span>, <span class="var-type">resource</span>&nbsp;<span class="var-name">$arc_color</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$obj_shape</span> = <span class="var-default">'arc'</span>], [<span class="var-type">float</span>&nbsp;<span class="var-name">$alpha</span> = <span class="var-default">0</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$orig_thickness</span> = <span class="var-default">0</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$height_thickness</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#reportStatus" title="details" class="method-name">reportStatus</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">float</span>
+										<a href="#_angleIn360" title="details" class="method-name">_angleIn360</a>
+											(<span class="var-type">float</span>&nbsp;<span class="var-name">$input_angle</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#_closestPoint" title="details" class="method-name">_closestPoint</a>
+											(<span class="var-type">float</span>&nbsp;<span class="var-name">$start_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$start_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$dest_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$dest_y</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#_confirmLineOrPixel" title="details" class="method-name">_confirmLineOrPixel</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$row_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$current_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$next_x</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$trim_tips</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$smooth_check</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$prev_adj_pixel_drawn</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$excl_x_points_of_row_y</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$inner_excl_x_points_of_row_y</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$tchord_x_points_of_row_y</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$tchord_excl_side</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$draw_tchord_line</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$smallest_t_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$largest_t_y</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#_connectDots" title="details" class="method-name">_connectDots</a>
+											(<span class="var-type">resource</span>&nbsp;<span class="var-name">&$image</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$input_array_points</span>, <span class="var-type">resource</span>&nbsp;<span class="var-name">&$arc_color</span>, [<span class="var-type">bool</span>&nbsp;<span class="var-name">$solid_shape</span> = <span class="var-default">1</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#_drawArc" title="details" class="method-name">_drawArc</a>
+											(<span class="var-type">resource</span>&nbsp;<span class="var-name">&$image</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$centre_x</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$centre_y</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$outer_width</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$outer_height</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$start_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$end_angle</span>, <span class="var-type">resource</span>&nbsp;<span class="var-name">&$arc_color</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$obj_shape</span> = <span class="var-default">'arc'</span>], [<span class="var-type">float</span>&nbsp;<span class="var-name">$alpha</span> = <span class="var-default">0</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$orig_thickness</span> = <span class="var-default">0</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$height_thickness</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#_drawFilledShape" title="details" class="method-name">_drawFilledShape</a>
+											(<span class="var-type">resource</span>&nbsp;<span class="var-name">&$image</span>, <span class="var-type">resource</span>&nbsp;<span class="var-name">&$arc_color</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$centre_x</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$centre_y</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$obj_shape</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$arc_alpha</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_alpha</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$phi_start_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$phi_end_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_phi_start_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_phi_end_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_radius_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_radius_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_radius_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_radius_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$dydx_outer_x_trans</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$dydx_outer_y_trans</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$dydx_inner_x_trans</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$dydx_inner_y_trans</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_arc_x_max</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_arc_y_max</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_arc_x_max</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_arc_y_max</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$true_height</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$outer_grid_y_start</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$outer_grid_y_end</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$inner_grid_y_start</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$inner_grid_y_end</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$outer_radii_swapped</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$inner_radii_swapped</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$trim_tips</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$smooth_check</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$x_grid_odd</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$y_grid_odd</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$definite_t_inner_arc_intersect</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$draw_tchord_line</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$tchord_tangential</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$t_line_points</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$tchord_line_slope</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$t_inner_arc_intersect</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$smallest_t_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$smallest_t_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$largest_t_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$largest_t_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$p_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$p_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$q_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$q_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$p_x_neighbour</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$p_y_neighbour</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$q_x_neighbour</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$q_y_neighbour</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$tchord_excl_side</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#_drawLineOrPixel" title="details" class="method-name">_drawLineOrPixel</a>
+											(<span class="var-type">float</span>&nbsp;<span class="var-name">$current_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$next_x</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$pixel_y</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$draw_line_valid</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$draw_lhs_pixel_valid</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$centre_x</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$centre_y</span>, <span class="var-type">resource</span>&nbsp;<span class="var-name">&$image</span>, <span class="var-type">resource</span>&nbsp;<span class="var-name">&$arc_color</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#_drawOutlinedShape" title="details" class="method-name">_drawOutlinedShape</a>
+											(<span class="var-type">resource</span>&nbsp;<span class="var-name">&$image</span>, <span class="var-type">resource</span>&nbsp;<span class="var-name">&$arc_color</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$centre_x</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$centre_y</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$obj_shape</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$arc_alpha</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_alpha</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$phi_start_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$phi_end_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_phi_start_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_phi_end_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_radius_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_radius_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_radius_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_radius_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$dydx_outer_x_trans</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$dydx_outer_y_trans</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$dydx_inner_x_trans</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$dydx_inner_y_trans</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_arc_x_max</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_arc_y_max</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_arc_x_max</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_arc_y_max</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$true_height</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$outer_grid_y_start</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$outer_grid_y_end</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$inner_grid_y_start</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$inner_grid_y_end</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$outer_radii_swapped</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$inner_radii_swapped</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$trim_tips</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$smooth_check</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$x_grid_odd</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$y_grid_odd</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$definite_t_inner_arc_intersect</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$draw_tchord_line</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$tchord_tangential</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$t_line_points</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$tchord_line_slope</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$t_inner_arc_intersect</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$smallest_t_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$smallest_t_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$largest_t_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$largest_t_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$p_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$p_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$q_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$q_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$p_x_neighbour</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$p_y_neighbour</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$q_x_neighbour</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$q_y_neighbour</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$tchord_excl_side</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#_finaliseExcludedXPoints" title="details" class="method-name">_finaliseExcludedXPoints</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$excl_x_points</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$min_outer_y</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$max_outer_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_arc_x_max</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$obj_shape</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#_finaliseInnerExcludedXPoints" title="details" class="method-name">_finaliseInnerExcludedXPoints</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$inner_excl_x_points</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$min_outer_y</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$max_outer_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_arc_x_max</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$obj_shape</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">float</span>
+										<a href="#_getAngle" title="details" class="method-name">_getAngle</a>
+											(<span class="var-type">float</span>&nbsp;<span class="var-name">$x1</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$y1</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$x2</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$y2</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#_getDyDxZeroForAlpha" title="details" class="method-name">_getDyDxZeroForAlpha</a>
+											(<span class="var-type">float</span>&nbsp;<span class="var-name">$alpha</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$ellipse_a</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$ellipse_b</span>, [<span class="var-type">bool</span>&nbsp;<span class="var-name">$apply_grids</span> = <span class="var-default">1</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$x_grid_odd</span> = <span class="var-default">1</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$y_grid_odd</span> = <span class="var-default">1</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#_getEllipseXsGivenY" title="details" class="method-name">_getEllipseXsGivenY</a>
+											(<span class="var-type">float</span>&nbsp;<span class="var-name">$y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$alpha</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$ellipse_a</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$ellipse_b</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$x_grid_odd</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$y_grid_odd</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#_getEllipseXYGivenPhi" title="details" class="method-name">_getEllipseXYGivenPhi</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$phi</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$alpha</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$ellipse_a</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$ellipse_b</span>, [<span class="var-type">bool</span>&nbsp;<span class="var-name">$apply_grids</span> = <span class="var-default">1</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$x_grid_odd</span> = <span class="var-default">1</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$y_grid_odd</span> = <span class="var-default">1</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#_getLineEqnCoeffs" title="details" class="method-name">_getLineEqnCoeffs</a>
+											(<span class="var-type">float</span>&nbsp;<span class="var-name">$x_start</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$y_start</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$x_end</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$y_end</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#_getLinePointsAllXs" title="details" class="method-name">_getLinePointsAllXs</a>
+											(<span class="var-type">float</span>&nbsp;<span class="var-name">$x_start</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$y_start</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$x_end</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$y_end</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$x_grid_odd</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$y_grid_odd</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#_getLinePointsAllYs" title="details" class="method-name">_getLinePointsAllYs</a>
+											(<span class="var-type">float</span>&nbsp;<span class="var-name">$x_start</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$y_start</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$x_end</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$y_end</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$x_grid_odd</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$y_grid_odd</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#_getProjectedTChordXs" title="details" class="method-name">_getProjectedTChordXs</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$row_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$tchord_line_slope</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$tchord_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$tchord_y</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$x_grid_odd</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$y_grid_odd</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">float</span>
+										<a href="#_getQuadrant" title="details" class="method-name">_getQuadrant</a>
+											(<span class="var-type">float</span>&nbsp;<span class="var-name">$input_angle</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$offset</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#_getSign" title="details" class="method-name">_getSign</a>
+											(<span class="var-type">float</span>&nbsp;<span class="var-name">$input</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#_getTChordParams" title="details" class="method-name">_getTChordParams</a>
+											(<span class="var-type">float</span>&nbsp;<span class="var-name">$alpha</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$phi_start_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$phi_end_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_radius_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_radius_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_alpha</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_phi_start_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_phi_end_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_radius_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_radius_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_arc_x_max</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_arc_y_max</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$outer_radii_swapped</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$inner_radii_swapped</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$trim_tips</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$x_grid_odd</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$y_grid_odd</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">float</span>
+										<a href="#_gridAdjust" title="details" class="method-name">_gridAdjust</a>
+											(<span class="var-type">float</span>&nbsp;<span class="var-name">$number</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$grid_is_odd</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#_innerArcIntersectsT" title="details" class="method-name">_innerArcIntersectsT</a>
+											(<span class="var-type">float</span>&nbsp;<span class="var-name">$t_x</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$t_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$alpha</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$ellipse_a</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$ellipse_b</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$x_grid_odd</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$y_grid_odd</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">float</span>
+										<a href="#_pointDistanceToLine" title="details" class="method-name">_pointDistanceToLine</a>
+											(<span class="var-type">float</span>&nbsp;<span class="var-name">$point_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$point_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$line_x_coeff</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$line_y_coeff</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$line_c_coeff</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#_sanitiseShapeInputs" title="details" class="method-name">_sanitiseShapeInputs</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$obj</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_y</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$orig_thickness</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$height_thickness</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$start_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$end_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$alpha</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#_tChordPointAfter" title="details" class="method-name">_tChordPointAfter</a>
+											(<span class="var-type">float</span>&nbsp;<span class="var-name">$t_x</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$t_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$largest_t_y</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">&$t_line_points</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$x_grid_odd</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$y_grid_odd</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#_tChordPointBefore" title="details" class="method-name">_tChordPointBefore</a>
+											(<span class="var-type">float</span>&nbsp;<span class="var-name">$t_x</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$t_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$smallest_t_y</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">&$t_line_points</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$x_grid_odd</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$y_grid_odd</span>)
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$_errors" id="$_errors"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">int</span>
+			<span class="var-name">$_errors</span>
+						(line <span class="line-number">469</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Stores codes relating to any errors that were found when  processing the shape</p>
+<p class="description"><p>Potential values are      <ol><li>0 - no errors found. The input was completely good</li><li>1 - the thickness exceeds the outer dimensions of the shape.
+ The shape will be drawn with zero thickness and filled.</li><li>8 - either the outer width or outer height was zero.</li><li>128 - the shape-type is not supported.</li></ol></p><p>The final _errors value is the sum of the error codes that were  found when processing the shape. A final result of 8 or higher  will result in the shape not being drawn.</p><p>The value can be obtained by running the reportStatus()  function on the owning object</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_shape" id="$_shape"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$_shape</span>
+						(line <span class="line-number">434</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Stores the standardised shape-type that EllipseArc determined  for the supplied inputs</p>
+<p class="description"><p>Potential values are      <ol><li>arc</li><li>arcchord</li><li>arcsegment</li><li>arctruechord</li><li>circle</li><li>ellipse</li><li>The original name of the shape if it is invalid</li></ol></p><p>The &quot;flipv&quot;, &quot;fliph&quot;, &quot;comp&quot; and &quot;smooth&quot; modifiers are  stripped from the shape-type since they are converted into  flags.</p><p>The value can be obtained by running the reportStatus()  function on the owning object</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">530</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor for the Image_EllipseArc class</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> containing the following parameters:         string   $this-&gt;_shape     the standardised shape-type         int      $this-&gt;_errors    the sum of the error-codes                       that were found when processing the shape.                       A value of 8 or higher will result in the                       shape not being drawn</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type">resource</span>&nbsp;<span class="var-name">&$image</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$centre_x</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$centre_y</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$outer_width</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$outer_height</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$start_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$end_angle</span>, <span class="var-type">resource</span>&nbsp;<span class="var-name">$arc_color</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$obj_shape</span> = <span class="var-default">'arc'</span>], [<span class="var-type">float</span>&nbsp;<span class="var-name">$alpha</span> = <span class="var-default">0</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$orig_thickness</span> = <span class="var-default">0</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$height_thickness</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">resource</span>
+				<span class="var-name">&$image</span><span class="var-description">: a reference to the image                       object</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$centre_x</span><span class="var-description">: x-coordinate of the centre of                       the shape</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$centre_y</span><span class="var-description">: y-coordinate of the centre of                       the shape</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$outer_width</span><span class="var-description">: the full horizontal width of                       the shape, assuming it was a full                       unrotated ellipse</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$outer_height</span><span class="var-description">: the full vertical height of                       the shape, assuming it was a full                       unrotated ellipse</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$start_angle</span><span class="var-description">: the starting angle of the                       revised shape</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$end_angle</span><span class="var-description">: the ending angle of the                       revised shape</span>			</li>
+					<li>
+				<span class="var-type">resource</span>
+				<span class="var-name">$arc_color</span><span class="var-description">: a reference to the shape's                       colour from imagecolorallocate or                       imagecolorallocatealpha</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$obj_shape</span><span class="var-description">: the type of shape. Defaults                       to 'arc'.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$alpha</span><span class="var-description">: the axis of rotation.                       Defaults to 0.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$orig_thickness</span><span class="var-description">: the thickness. Defaults to 0.                       It can be either a single number (for                       uniform thickness) or a quoted string                       containing two numbers separated by a                       forward slash &quot;/&quot;. The first number is the                       thickness of the width and the second                       number is the thickness of the height. For                       either number, a negative value means that                       the preference is for the shape to be                       outlined instead of being filled. The                       shape will only be outlined if BOTH                       numbers are negative.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$height_thickness</span><span class="var-description">: <p>the optional thickness of the                       unrotated height. If supplied, overrides                       the height that the $orig_thickness                       parameter would have provided. It is a                       single number and it only modifies the                       height. Defaults to null.</p><p>If both $orig_thickness and $height_thickness are negative  numbers, the shape will be outlined instead of filled.</p></span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodreportStatus" id="reportStatus"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">reportStatus</span> (line <span class="line-number">8539</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the $_errors and $_shape parameters of the EllipseArc  object</p>
+<p class="description"><p>The report also includes a brief description of the types of  errors that were found in the shape and a conclusion of whether  or not the shape was drawn.</p><p>NOTE: this function can only be used if the user manually  creates the EllipseArc object using the &quot;new&quot; operator since  the object is now persistent.</p><p>If the shape was created by Image_EllipseArc_wrapper() then the  object is automatically deleted after creation so this function  can not be used.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> <p>containing the following                       parameters separated by the &quot;|&quot; character</p><p><ul><li>string $this-&gt;_shape</li><li>int    $this-&gt;_errors</li><li>string &lt;descriptions of the error-types that were found&gt;</li></ul></p></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			reportStatus
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="method_angleIn360" id="_angleIn360"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">_angleIn360</span> (line <span class="line-number">583</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adjusts the supplied angle to fit into the 0 - 360 degree range</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> adjusted to the range 0 to 360                       range</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">float</span>
+		<span class="method-name">
+			_angleIn360
+		</span>
+					(<span class="var-type">float</span>&nbsp;<span class="var-name">$input_angle</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$input_angle</span><span class="var-description">: <p>the input angle in degrees</p><p>NOTES The calculations deliberately use while loops instead of  the PHP modulus operator. The latter truncates the angle into  an integer, with the effect a chord going from 180 to 360  degrees will now have pixels for the 179 and 1 degree positions  showing.</p></span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_closestPoint" id="_closestPoint"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">_closestPoint</span> (line <span class="line-number">629</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the closest x-y pixel to the destination pixel from a  starting pixel</p>
+<p class="description"><p>This closest x-y pair is always adjacent to the destination  pixel. This is useful when drawing outlines: by default  imageline would fill in the pixels up to and including the  destination. However in an arc this means that the destination  pixel gets filled twice: once for the line connecting up to it;  and the second time for the line going from it to the next  point. This is noticeable when alpha colours are used.  _closestPoint prevents the destination itself will not be  coloured by imageline, thereby reducing the chances of  double-filling.</p><p>NOTE: A future improvement to this function will be to take  into account the position of the next pixel AFTER the  destination. If the pixel after the destination is in the  opposite direction from the one leading to the destination, it  is possible for the destination to still get double-filled.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> containing the following parameters:         int   $final_x         int   $final_y</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			_closestPoint
+		</span>
+					(<span class="var-type">float</span>&nbsp;<span class="var-name">$start_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$start_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$dest_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$dest_y</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$start_x</span><span class="var-description">: the x-value of the starting pixel</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$start_y</span><span class="var-description">: the y-value of the starting pixel</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$dest_x</span><span class="var-description">: the x-value of the destination pixel</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$dest_y</span><span class="var-description">: the y-value of the destination pixel</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_confirmLineOrPixel" id="_confirmLineOrPixel"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">_confirmLineOrPixel</span> (line <span class="line-number">768</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Verifies if a line, pixel or nothing should be drawn between  $current_x and $next_x for a given $pixel_y</p>
+<p class="description"><p>The results are later fed to _drawLineOrPixel to do the actual  drawing activity.</p><p>The line is ALWAYS from left to right. The line also goes from  the starting x-value up to (but not including) the destination  x-value. During the next iteration of the calling function, the  current destination x-value will become the starting point.  This prevents double-filling the start and end points.</p><p>LHS = Left Hand Side RHS = Right Hand Side</p><p>The companion function to _confirmLineOrPixel is  _drawLineOrPixel. _confirmLineOrPixel makes the decisions which  _drawLineOrPixel then executes.</p><p>NOTE: _confirmLineOrPixel is only used when the shape is to be  filled. Another function is used if only the outline of the  shape is desired.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> <p>containing the following parameters:         bool   $draw_line_valid              a binary switch.                       &quot;1&quot; if a line can be drawn using                       imageline, &quot;0&quot; otherwise         bool   $draw_lhs_pixel_valid         a binary switch.                       &quot;1&quot; if $current_x can be coloured using                       imagesetpixel, &quot;0&quot; otherwise.         bool   $prev_adj_pixel_drawn         float  $current_x                    the revised                       $current_x that the line will begin from.         float  $next_x                       the revised $next_x                       that marks the pixel after the end of the                       line.</p><p>The returned $current_x and $next_x values are used by tchords  to determine where the next printing should start from. Only  tchords modify these values</p></li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			_confirmLineOrPixel
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$row_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$current_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$next_x</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$trim_tips</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$smooth_check</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$prev_adj_pixel_drawn</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$excl_x_points_of_row_y</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$inner_excl_x_points_of_row_y</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$tchord_x_points_of_row_y</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$tchord_excl_side</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$draw_tchord_line</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$smallest_t_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$largest_t_y</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$row_y</span><span class="var-description">: the y-value of the                       row being processed. Positive y-values are                       closer to the top of the screen since the                       true Cartesian system is used.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$current_x</span><span class="var-description">: the x-value of the                       starting pixel</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$next_x</span><span class="var-description">: the x-value of the                       destination pixel. Note that                       ($next_x,$pixel_y) is NOT populated in                       this iteration.</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$trim_tips</span><span class="var-description">: true if the edges                       should be trimmed.</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$smooth_check</span><span class="var-description">: true if lone pixels                       should be removed</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$prev_adj_pixel_drawn</span><span class="var-description">: true if the                       previous x-value before $current_x was                       valid. It helps determine if $current_x is                       a lone pixel.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$excl_x_points_of_row_y</span><span class="var-description">: an array containing                       boundary x-values that are &quot;excluded&quot; from                       the outer extremities of the shape for                       this row.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$inner_excl_x_points_of_row_y</span><span class="var-description">: an array containing                       boundary x-values points within the inner                       part of the shape. Any x-value within this                       range will not be drawn as this area                       should be hollow.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$tchord_x_points_of_row_y</span><span class="var-description">: an array containing                       the points on the tchord that intersect                       this horizontal row. The points may be                       projections of the tchord line.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$tchord_excl_side</span><span class="var-description">: states which area                       (left, right, top or bottom) around the                       tchord is excluded from being part of the                       shape. The value is &quot;none&quot; if the shape is                       not a tchord.</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$draw_tchord_line</span><span class="var-description">: true if the tchord                       line must be drawn for the shape, false                       otherwise.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$smallest_t_y</span><span class="var-description">: the smallest                       y-value of the tchord. It may be for the                       starting point or the ending point. The                       desired pixel's y-value will never be less                       than this value.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$largest_t_y</span><span class="var-description">: the largest y-value                       of the tchord. It may be for the starting                       point or the ending point. The desired                       pixel's y-value will never be greater than                       this value.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_connectDots" id="_connectDots"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">_connectDots</span> (line <span class="line-number">1247</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">draws approximate lines between the x-y points in the supplied  array</p>
+<p class="description"><p>It uses _closestPoint to avoid double-filling pixels. The  benefits are noticeable when using alpha colours.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			_connectDots
+		</span>
+					(<span class="var-type">resource</span>&nbsp;<span class="var-name">&$image</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$input_array_points</span>, <span class="var-type">resource</span>&nbsp;<span class="var-name">&$arc_color</span>, [<span class="var-type">bool</span>&nbsp;<span class="var-name">$solid_shape</span> = <span class="var-default">1</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">resource</span>
+				<span class="var-name">&$image</span><span class="var-description">: reference to the PHP image                       object</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$input_array_points</span><span class="var-description">: contains all the points                       between which lines are to be drawn. The                       points are in the order in which the lines                       will connect. It is one-dimensional with                       alternating X and Y values; each pair                       represents a point</span>			</li>
+					<li>
+				<span class="var-type">resource</span>
+				<span class="var-name">&$arc_color</span><span class="var-description">: reference to the shape                       outline colour, assigned by                       imagecolorallocate or                       imagecolorallocatealpha</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$solid_shape</span><span class="var-description">: <p>if true (default), then the                       first and last points in                       $input_array_points are connected. It is                       optional: only an incomplete arc with                       single-line thickness uses this parameter                       in the false position.</p><p>The line always goes from ($start_x,$start_y) to  ($next_x_approx,$next_x_approx)</p></span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_drawArc" id="_drawArc"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">_drawArc</span> (line <span class="line-number">1417</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Attempts to draw the arc with the supplied parameters</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> containing the following parameters:         string   $obj_shape        the standardised shape-type         int      $errors           the sum of the error-codes                       that were found when processing the shape.                       A value of 8 or higher will result in the                       shape not being drawn</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			_drawArc
+		</span>
+					(<span class="var-type">resource</span>&nbsp;<span class="var-name">&$image</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$centre_x</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$centre_y</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$outer_width</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$outer_height</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$start_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$end_angle</span>, <span class="var-type">resource</span>&nbsp;<span class="var-name">&$arc_color</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$obj_shape</span> = <span class="var-default">'arc'</span>], [<span class="var-type">float</span>&nbsp;<span class="var-name">$alpha</span> = <span class="var-default">0</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$orig_thickness</span> = <span class="var-default">0</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$height_thickness</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">resource</span>
+				<span class="var-name">&$image</span><span class="var-description">: a reference to the image                       object</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$centre_x</span><span class="var-description">: x-coordinate of the centre of                       the shape</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$centre_y</span><span class="var-description">: y-coordinate of the centre of                       the shape</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$outer_width</span><span class="var-description">: the full horizontal width of                       the shape, assuming it was a full                       unrotated ellipse</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$outer_height</span><span class="var-description">: the full vertical height of                       the shape, assuming it was a full                       unrotated ellipse</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$start_angle</span><span class="var-description">: the starting angle of the                       revised shape</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$end_angle</span><span class="var-description">: the ending angle of the                       revised shape</span>			</li>
+					<li>
+				<span class="var-type">resource</span>
+				<span class="var-name">&$arc_color</span><span class="var-description">: a reference to the shape's                       colour from imagecolorallocate or                       imagecolorallocatealpha</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$obj_shape</span><span class="var-description">: the type of shape. Defaults                       to 'arc'.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$alpha</span><span class="var-description">: the axis of rotation.                       Defaults to 0.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$orig_thickness</span><span class="var-description">: the thickness. Defaults to 0.                       It can be either a single number (for                       uniform thickness) or a quoted string                       containing two numbers separated by a                       forward slash &quot;/&quot;. The first number is the                       thickness of the width and the second                       number is the thickness of the height. For                       either number, a negative value means that                       the preference is for the shape to be                       outlined instead of being filled. The                       shape will only be outlined if BOTH                       numbers are negative.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$height_thickness</span><span class="var-description">: <p>the optional thickness of the                       unrotated height. If supplied, overrides                       the height that the $orig_thickness                       parameter would have provided. It is a                       single number and it only modifies the                       height. Defaults to null.</p><p>If both $orig_thickness and $height_thickness are negative  numbers, the shape will be outlined instead of filled.</p></span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_drawFilledShape" id="_drawFilledShape"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">_drawFilledShape</span> (line <span class="line-number">2125</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">draws the filled shape from the specified parameters</p>
+<p class="description"><p>The sister function to _drawFilledShape() is  _drawOutlinedShape(). They take exactly the same arguments but  process the data in different ways as required.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			_drawFilledShape
+		</span>
+					(<span class="var-type">resource</span>&nbsp;<span class="var-name">&$image</span>, <span class="var-type">resource</span>&nbsp;<span class="var-name">&$arc_color</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$centre_x</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$centre_y</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$obj_shape</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$arc_alpha</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_alpha</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$phi_start_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$phi_end_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_phi_start_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_phi_end_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_radius_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_radius_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_radius_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_radius_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$dydx_outer_x_trans</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$dydx_outer_y_trans</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$dydx_inner_x_trans</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$dydx_inner_y_trans</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_arc_x_max</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_arc_y_max</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_arc_x_max</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_arc_y_max</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$true_height</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$outer_grid_y_start</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$outer_grid_y_end</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$inner_grid_y_start</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$inner_grid_y_end</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$outer_radii_swapped</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$inner_radii_swapped</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$trim_tips</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$smooth_check</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$x_grid_odd</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$y_grid_odd</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$definite_t_inner_arc_intersect</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$draw_tchord_line</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$tchord_tangential</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$t_line_points</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$tchord_line_slope</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$t_inner_arc_intersect</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$smallest_t_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$smallest_t_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$largest_t_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$largest_t_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$p_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$p_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$q_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$q_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$p_x_neighbour</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$p_y_neighbour</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$q_x_neighbour</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$q_y_neighbour</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$tchord_excl_side</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">resource</span>
+				<span class="var-name">&$image</span><span class="var-description">: a reference to                       the image object</span>			</li>
+					<li>
+				<span class="var-type">resource</span>
+				<span class="var-name">&$arc_color</span><span class="var-description">: a reference to                       the shape's colour from imagecolorallocate</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$centre_x</span><span class="var-description">: x-coordinate of                       the centre of the shape</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$centre_y</span><span class="var-description">: y-coordinate of                       the centre of the shape</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$obj_shape</span><span class="var-description">: the type of                       shape</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$arc_alpha</span><span class="var-description">: the axis of                       rotation</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$inner_alpha</span><span class="var-description">: the axis                       rotation angle of the inner arc. It may be                       different from $alpha.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$phi_start_angle</span><span class="var-description">: the outer                       starting angle of the rotated shape</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$phi_end_angle</span><span class="var-description">: the outer                       starting angle of the rotated shape</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$inner_phi_start_angle</span><span class="var-description">: the angle that                       point P makes with the origin</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$inner_phi_end_angle</span><span class="var-description">: the angle that                       point Q makes with the origin</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$outer_radius_x</span><span class="var-description">: the radius of                       the unrotated outer width</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$outer_radius_y</span><span class="var-description">: the radius of                       the unrotated outer height</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$inner_radius_x</span><span class="var-description">: the radius of                       the unrotated inner arc width</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$inner_radius_y</span><span class="var-description">: the radius of                       the unrotated inner arc's height</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$dydx_outer_x_trans</span><span class="var-description">: The maximum                       x-value of the rotated shape when centred                       at the origin. It is calculated using the                       formula of a rotated ellipse. It helps                       determine the final of $x_grid_odd.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$dydx_outer_y_trans</span><span class="var-description">: The maximum                       y-value of the rotated shape when centred                       at the origin. It is calculated using the                       formula of a rotated ellipse. It helps                       determine the final of $y_grid_odd.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$dydx_inner_x_trans</span><span class="var-description">: The maximum                       x-value of the rotated inner arc when                       centred at the origin. It helps determine                       the x-grid boundaries for the inner arc.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$dydx_inner_y_trans</span><span class="var-description">: The maximum                       y-value of the rotated inner arc when                       centred at the origin. It helps determine                       the y-grid boundaries for the inner arc.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$outer_arc_x_max</span><span class="var-description">: The maximum                       x-value of the rotated shape. It is half                       of the total width-space of the rotated                       ellipse.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$outer_arc_y_max</span><span class="var-description">: The maximum                       y-value of the rotated shape. It is half                       of the total height-space of the rotated                       ellipse.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$inner_arc_x_max</span><span class="var-description">: The maximum                       x-value of the rotated inner arc. It is                       half of the total width-space of the                       rotated inner arc's ellipse.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$inner_arc_y_max</span><span class="var-description">: The maximum                       y-value of the rotated inner arc. It is                       half of the total height-space of the                       rotated inner arc's ellipse.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$true_height</span><span class="var-description">: the pixel                       height of the shape's full rotated ellipse                       in the grid system. For filled shapes it                       helps limit the range of plottable                       y-values for the inner and outer arcs.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$outer_grid_y_start</span><span class="var-description">: the lowest                       pixel of the shape's full ellipse in the                       grid system. It is typically &quot;1&quot;, unless                       $trim_tips is enabled, in which case it                       becomes 2 (thereby truncating the bottom                       pixel of the shape)</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$outer_grid_y_end</span><span class="var-description">: the highest                       pixel of the shape's full ellipse in the                       grid system. It typically equals the value                       in $true_height unless $trim_tips is                       enabled, in which case it becomes one less                       than $true_height (thereby truncating the                       top pixel of the shape)</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$inner_grid_y_start</span><span class="var-description">: the lowest                       pixel of the inner arc's ellipse in the                       grid system.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$inner_grid_y_end</span><span class="var-description">: the highest                       pixel of the inner arc's ellipse in the                       grid system.</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$outer_radii_swapped</span><span class="var-description">: true if the                       outer width and height were swapped.</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$inner_radii_swapped</span><span class="var-description">: true if the                       inner width and height were swapped.</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$trim_tips</span><span class="var-description">: true if the                       inner and outer edges should be truncated</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$smooth_check</span><span class="var-description">: true if lone                       pixels should be removed</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$x_grid_odd</span><span class="var-description">: true if the                       width-space uses an odd number of pixels</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$y_grid_odd</span><span class="var-description">: true if the                       height-space uses an odd number of pixels</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$definite_t_inner_arc_intersect</span><span class="var-description">: true if the                       tchord intersects the inner arc</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$draw_tchord_line</span><span class="var-description">: true if the                       tchord line should be explicitly drawn</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$tchord_tangential</span><span class="var-description">: true if the                       tchord is considered tangential to the                       inner arc</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$t_line_points</span><span class="var-description">: an array                       containing all the x-y points that make up                       up the tchord</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$tchord_line_slope</span><span class="var-description">: the slope of                       the tchord line</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$t_inner_arc_intersect</span><span class="var-description">: an array                       containing the points where the tchord                       approximately intersected the inner arc</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$smallest_t_x</span><span class="var-description">: the x-value                       corresponding to the lowest vertical pixel                       of the tchord</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$smallest_t_y</span><span class="var-description">: the y-value of                       the lowest vertical pixel of the tchord</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$largest_t_x</span><span class="var-description">: the x-value                       corresponding to the highest vertical                       pixel of the tchord</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$largest_t_y</span><span class="var-description">: the y-value of                       the highest vertical pixel of the tchord</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$p_x</span><span class="var-description">: the x-value of                       the P intersection point of the tchord and                       the inner arc that is closest to the                       starting point of the tchord</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$p_y</span><span class="var-description">: the y-value of                       the P intersection point of the tchord and                       the inner arc that is closest to the                       starting point of the tchord</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$q_x</span><span class="var-description">: the x-value of                       the Q intersection point of the tchord and                       the inner arc that is closest to the                       ending point of the tchord</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$q_y</span><span class="var-description">: the y-value of                       the Q intersection point of the tchord and                       the inner arc that is closest to the                       ending point of the tchord</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$p_x_neighbour</span><span class="var-description">: the x-value of                       the pixel that is just after point P</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$p_y_neighbour</span><span class="var-description">: the y-value of                       the pixel that is just after point P</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$q_x_neighbour</span><span class="var-description">: the x-value of                       the pixel that is just before point Q</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$q_y_neighbour</span><span class="var-description">: the y-value of                       the pixel that is just before point Q</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$tchord_excl_side</span><span class="var-description">: the area of the                       shape that is excluded because of the                       presence of the tchord line</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_drawLineOrPixel" id="_drawLineOrPixel"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">_drawLineOrPixel</span> (line <span class="line-number">4092</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Draws a horizontal line or pixel from a starting x-value to a  destination x-value for a given y-value</p>
+<p class="description"><p>The companion function to _drawLineOrPixel is  _confirmLineOrPixel. _confirmLineOrPixel makes the decisions  which _drawLineOrPixel then executes.</p><p>NOTE: _drawLineOrPixel is only used for filled shapes. Another  function is used if only the outline of the shape is desired.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			_drawLineOrPixel
+		</span>
+					(<span class="var-type">float</span>&nbsp;<span class="var-name">$current_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$next_x</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$pixel_y</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$draw_line_valid</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$draw_lhs_pixel_valid</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$centre_x</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$centre_y</span>, <span class="var-type">resource</span>&nbsp;<span class="var-name">&$image</span>, <span class="var-type">resource</span>&nbsp;<span class="var-name">&$arc_color</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$current_x</span><span class="var-description">: the x-value of the                       starting point</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$next_x</span><span class="var-description">: the x-value of the                       destination point. Note that                       ($next_x,$pixel_y) is NOT populated in                       this iteration. See the description of                       this function for more info.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$pixel_y</span><span class="var-description">: the y-value of the                       horizontal line.</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$draw_line_valid</span><span class="var-description">: shows if a line is a                       valid to draw</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$draw_lhs_pixel_valid</span><span class="var-description">: shows if the starting                       point is valid to draw</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$centre_x</span><span class="var-description">: x-coordinate of the                       centre of the shape</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$centre_y</span><span class="var-description">: y-coordinate of the                       centre of the shape</span>			</li>
+					<li>
+				<span class="var-type">resource</span>
+				<span class="var-name">&$image</span><span class="var-description">: a reference to the image                       object</span>			</li>
+					<li>
+				<span class="var-type">resource</span>
+				<span class="var-name">&$arc_color</span><span class="var-description">: <p>a reference to the                       shape's colour</p><p>The line is ALWAYS drawn from left to right. The line also goes  from the starting x-value up to (but not including) the  destination x-value. During the next iteration of the calling  function, the current destination x-value will become the  starting point. This prevents double-filling the start and end  points.</p><p>LHS = Left Hand Side       RHS = Right Hand Side</p></span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_drawOutlinedShape" id="_drawOutlinedShape"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">_drawOutlinedShape</span> (line <span class="line-number">4313</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">draws the outlined shape from the specified parameters</p>
+<p class="description"><p>The sister function to _drawOutlinedShape() is  _drawFilledShape(). They take exactly the same arguments but  process the data in different ways as required.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			_drawOutlinedShape
+		</span>
+					(<span class="var-type">resource</span>&nbsp;<span class="var-name">&$image</span>, <span class="var-type">resource</span>&nbsp;<span class="var-name">&$arc_color</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$centre_x</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$centre_y</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$obj_shape</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$arc_alpha</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_alpha</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$phi_start_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$phi_end_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_phi_start_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_phi_end_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_radius_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_radius_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_radius_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_radius_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$dydx_outer_x_trans</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$dydx_outer_y_trans</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$dydx_inner_x_trans</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$dydx_inner_y_trans</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_arc_x_max</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_arc_y_max</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_arc_x_max</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_arc_y_max</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$true_height</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$outer_grid_y_start</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$outer_grid_y_end</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$inner_grid_y_start</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$inner_grid_y_end</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$outer_radii_swapped</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$inner_radii_swapped</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$trim_tips</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$smooth_check</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$x_grid_odd</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$y_grid_odd</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$definite_t_inner_arc_intersect</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$draw_tchord_line</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$tchord_tangential</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$t_line_points</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$tchord_line_slope</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$t_inner_arc_intersect</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$smallest_t_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$smallest_t_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$largest_t_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$largest_t_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$p_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$p_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$q_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$q_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$p_x_neighbour</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$p_y_neighbour</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$q_x_neighbour</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$q_y_neighbour</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$tchord_excl_side</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">resource</span>
+				<span class="var-name">&$image</span><span class="var-description">: a reference to                       the image object</span>			</li>
+					<li>
+				<span class="var-type">resource</span>
+				<span class="var-name">&$arc_color</span><span class="var-description">: a reference to                       the shape's colour from imagecolorallocate</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$centre_x</span><span class="var-description">: x-coordinate of                       the centre of the shape</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$centre_y</span><span class="var-description">: y-coordinate of                       the centre of the shape</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$obj_shape</span><span class="var-description">: the type of                       shape</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$arc_alpha</span><span class="var-description">: the axis of                       rotation</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$inner_alpha</span><span class="var-description">: the axis                       rotation angle of the inner arc. It may be                       different from $alpha.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$phi_start_angle</span><span class="var-description">: the outer                       starting angle of the rotated shape</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$phi_end_angle</span><span class="var-description">: the outer                       starting angle of the rotated shape</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$inner_phi_start_angle</span><span class="var-description">: the angle that                       point P makes with the origin</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$inner_phi_end_angle</span><span class="var-description">: the angle that                       point Q makes with the origin</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$outer_radius_x</span><span class="var-description">: the radius of                       the unrotated outer width</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$outer_radius_y</span><span class="var-description">: the radius of                       the unrotated outer height</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$inner_radius_x</span><span class="var-description">: the radius of                       the unrotated inner arc width</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$inner_radius_y</span><span class="var-description">: the radius of                       the unrotated inner arc's height</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$dydx_outer_x_trans</span><span class="var-description">: The maximum                       x-value of the rotated shape when centred                       at the origin. It is calculated using the                       formula of a rotated ellipse. It helps                       determine the final of $x_grid_odd.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$dydx_outer_y_trans</span><span class="var-description">: The maximum                       y-value of the rotated shape when centred                       at the origin. It is calculated using the                       formula of a rotated ellipse. It helps                       determine the final of $y_grid_odd.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$dydx_inner_x_trans</span><span class="var-description">: The maximum                       x-value of the rotated inner arc when                       centred at the origin. It helps determine                       the x-grid boundaries for the inner arc.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$dydx_inner_y_trans</span><span class="var-description">: The maximum                       y-value of the rotated inner arc when                       centred at the origin. It helps determine                       the y-grid boundaries for the inner arc.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$outer_arc_x_max</span><span class="var-description">: The maximum                       x-value of the rotated shape. It is half                       of the total width-space of the rotated                       ellipse.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$outer_arc_y_max</span><span class="var-description">: The maximum                       y-value of the rotated shape. It is half                       of the total height-space of the rotated                       ellipse.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$inner_arc_x_max</span><span class="var-description">: The maximum                       x-value of the rotated inner arc. It is                       half of the total width-space of the                       rotated inner arc's ellipse.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$inner_arc_y_max</span><span class="var-description">: The maximum                       y-value of the rotated inner arc. It is                       half of the total height-space of the                       rotated inner arc's ellipse.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$true_height</span><span class="var-description">: the pixel                       height of the shape's full rotated ellipse                       in the grid system. For filled shapes it                       helps limit the range of plottable                       y-values for the inner and outer arcs.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$outer_grid_y_start</span><span class="var-description">: the lowest                       pixel of the shape's full ellipse in the                       grid system. It is typically &quot;1&quot;, unless                       $trim_tips is enabled, in which case it                       becomes 2 (thereby truncating the bottom                       pixel of the shape)</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$outer_grid_y_end</span><span class="var-description">: the highest                       pixel of the shape's full ellipse in the                       grid system. It typically equals the value                       in $true_height unless $trim_tips is                       enabled, in which case it becomes one less                       than $true_height (thereby truncating the                       top pixel of the shape)</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$inner_grid_y_start</span><span class="var-description">: the lowest                       pixel of the inner arc's ellipse in the                       grid system.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$inner_grid_y_end</span><span class="var-description">: the highest                       pixel of the inner arc's ellipse in the                       grid system.</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$outer_radii_swapped</span><span class="var-description">: true if the                       outer width and height were swapped.</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$inner_radii_swapped</span><span class="var-description">: true if the                       inner width and height were swapped.</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$trim_tips</span><span class="var-description">: true if the                       inner and outer edges should be truncated</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$smooth_check</span><span class="var-description">: true if lone                       pixels should be removed</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$x_grid_odd</span><span class="var-description">: true if the                       width-space uses an odd number of pixels</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$y_grid_odd</span><span class="var-description">: true if the                       height-space uses an odd number of pixels</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$definite_t_inner_arc_intersect</span><span class="var-description">: true if the                       tchord intersects the inner arc</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$draw_tchord_line</span><span class="var-description">: true if the                       tchord line should be explicitly drawn</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$tchord_tangential</span><span class="var-description">: true if the                       tchord is considered tangential to the                       inner arc</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$t_line_points</span><span class="var-description">: an array                       containing all the x-y points that make up                       up the tchord</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$tchord_line_slope</span><span class="var-description">: the slope of                       the tchord line</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$t_inner_arc_intersect</span><span class="var-description">: an array                       containing the points where the tchord                       approximately intersected the inner arc</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$smallest_t_x</span><span class="var-description">: the x-value                       corresponding to the lowest vertical pixel                       of the tchord</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$smallest_t_y</span><span class="var-description">: the y-value of                       the lowest vertical pixel of the tchord</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$largest_t_x</span><span class="var-description">: the x-value                       corresponding to the highest vertical                       pixel of the tchord</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$largest_t_y</span><span class="var-description">: the y-value of                       the highest vertical pixel of the tchord</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$p_x</span><span class="var-description">: the x-value of                       the P intersection point of the tchord and                       the inner arc that is closest to the                       starting point of the tchord</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$p_y</span><span class="var-description">: the y-value of                       the P intersection point of the tchord and                       the inner arc that is closest to the                       starting point of the tchord</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$q_x</span><span class="var-description">: the x-value of                       the Q intersection point of the tchord and                       the inner arc that is closest to the                       ending point of the tchord</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$q_y</span><span class="var-description">: the y-value of                       the Q intersection point of the tchord and                       the inner arc that is closest to the                       ending point of the tchord</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$p_x_neighbour</span><span class="var-description">: the x-value of                       the pixel that is just after point P</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$p_y_neighbour</span><span class="var-description">: the y-value of                       the pixel that is just after point P</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$q_x_neighbour</span><span class="var-description">: the x-value of                       the pixel that is just before point Q</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$q_y_neighbour</span><span class="var-description">: the y-value of                       the pixel that is just before point Q</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$tchord_excl_side</span><span class="var-description">: the area of the                       shape that is excluded because of the                       presence of the tchord line</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_finaliseExcludedXPoints" id="_finaliseExcludedXPoints"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">_finaliseExcludedXPoints</span> (line <span class="line-number">5110</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Tidies up the $excl_x_points array and ensures that every  y-point has exclusion values</p>
+<p class="description"><p>For each y-key, it sorts the entries and then takes the lowest  and highest x-values as the only entries to remain: the array's  task is to mark the outer boundaries of the shapenothing is  allowed between the lowest and highest entries so there is no  need to keep any other points. It also ensures that for every  y-value in the full shape, there will always be an  $excl_x_points entry. If necessary it creates dummy values. It  is only used for filled shapes.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			_finaliseExcludedXPoints
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$excl_x_points</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$min_outer_y</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$max_outer_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_arc_x_max</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$obj_shape</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$excl_x_points</span><span class="var-description">: the array containing the                       boundary points of the outer part of the                       shape. X-values are allowed on either side                       or between the $excl_x_points range, but                       lines or pixels will not be drawn across                       or on the $excl_x_points values                       themselves.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$min_outer_y</span><span class="var-description">: the lowest y-value of the full                       ellipse of which this arc is a part.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$max_outer_y</span><span class="var-description">: the highest y-value of the full                       ellipse of which this arc is a part.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$outer_arc_x_max</span><span class="var-description">: the highest x-value in the full                       ellipse. Used when creating dummy values</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$obj_shape</span><span class="var-description">: <p>used to put in special                       exclusions For example, an &quot;arcsegment&quot;                       should never have an exclusion at (0,0)</p><p>NOTES: Coded numbers were used for the dummy values. They  should not interfere with any possible shape unless the shape's  dimensions approach the PHP_INT_MAX limit</p><p>This function uses the &quot;200&quot; series of manual exclusions: dummy  exclusions will be about 200 pixels larger than the  $outer_arc_x_max value.</p></span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_finaliseInnerExcludedXPoints" id="_finaliseInnerExcludedXPoints"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">_finaliseInnerExcludedXPoints</span> (line <span class="line-number">5204</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Tidies up the $inner_excl_x_points array and ensures that every  y-point has exclusion values</p>
+<p class="description"><p>For each y-key, it sorts the entries and then takes the lowest  and highest x-values as the only entries to remain: nothing is  allowed between the lowest and highest entries so there is no  need to keep any other points. It also ensures that for every  y-value in the full shape, there will always be an  $inner_excl_x_points entry. If necessary it creates dummy  values. It is only used for filled shapes.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the sanitised version of                       $inner_excl_x_points.</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			_finaliseInnerExcludedXPoints
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$inner_excl_x_points</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$min_outer_y</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$max_outer_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_arc_x_max</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$obj_shape</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$inner_excl_x_points</span><span class="var-description">: the array containing the                       boundary points within the inner part of                       the shape. Any x-value within this range                       will not be drawn as this area should be                       hollow.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$min_outer_y</span><span class="var-description">: the lowest y-value of the                       full ellipse of which this arc is a part.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$max_outer_y</span><span class="var-description">: the highest y-value of the                       full ellipse of which this arc is a part.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$outer_arc_x_max</span><span class="var-description">: the highest x-value in the                       full ellipse. Used when creating dummy                       values</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$obj_shape</span><span class="var-description">: <p>used to put in special                       exclusions For example, an &quot;arcsegment&quot;                       should never have an exclusion at (0,0)</p><p>NOTES: Coded numbers were used for the dummy values. They  should not interfere with any possible shape unless the shape's  dimensions approach the PHP_INT_MAX limit</p><p>This function uses the &quot;100&quot; series of manual exclusions: dummy  exclusions will be about 100 pixels larger than the  $outer_arc_x_max value.</p></span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_getAngle" id="_getAngle"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">_getAngle</span> (line <span class="line-number">5315</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the angle that one x-y point makes with another</p>
+<p class="description"><p>The angle is always taken counter-clockwise from the starting  point to the ending point, with the 3 o'clock position being  zero degrees as per the Cartesian system. Most of the time the  starting point is the origin (0, 0).</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">float</span>
+		<span class="method-name">
+			_getAngle
+		</span>
+					(<span class="var-type">float</span>&nbsp;<span class="var-name">$x1</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$y1</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$x2</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$y2</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$x1</span><span class="var-description">: the x-value of the starting point</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$y1</span><span class="var-description">: the y-value of the starting point</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$x2</span><span class="var-description">: the x-value of the ending point</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$y2</span><span class="var-description">: the y-value of the ending point</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_getDyDxZeroForAlpha" id="_getDyDxZeroForAlpha"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">_getDyDxZeroForAlpha</span> (line <span class="line-number">5419</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the x-y coordinates where the slope of the ellipse is  zero</p>
+<p class="description"><p>This corresponds to the minimum and maximum values that y can  have in this ellipse. This was calculated from first principles  by finding the value of x that makes dy/dx of a normal ellipse  = -Tan($alpha)</p><p>If the original point had coordinates ($x_orig,$y_orig) with  slope dy/dx=-Tan($alpha), then the rotation through $alpha will  cause dy/dx to be zero.</p><p>Note: this function only returns one of the two points where  dy/dx is 0. Taking the inversion of the returned point will  yield the other point. For example if one of the points is  (4,13), then the other point will be (-4,-13). The two points  are always symmetrical about the line y=x.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> containing the following parameters:                       the x-y point where dy/dx = 0 for alpha.                       This is done by rotating point                       ($x_orig,$y_orig) through $alpha</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			_getDyDxZeroForAlpha
+		</span>
+					(<span class="var-type">float</span>&nbsp;<span class="var-name">$alpha</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$ellipse_a</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$ellipse_b</span>, [<span class="var-type">bool</span>&nbsp;<span class="var-name">$apply_grids</span> = <span class="var-default">1</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$x_grid_odd</span> = <span class="var-default">1</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$y_grid_odd</span> = <span class="var-default">1</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$alpha</span><span class="var-description">: the axis rotation angle</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$ellipse_a</span><span class="var-description">: the semi-major axis of the unrotated                       ellipse.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$ellipse_b</span><span class="var-description">: the semi-minor axis of the unrotated                       ellipse.</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$apply_grids</span><span class="var-description">: a binary switch. If true, then the                       $x_grid_odd and $y_grid_odd parameters                       should be applied to the returned x-y                       point.</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$x_grid_odd</span><span class="var-description">: a binary switch. If &quot;1&quot;, then the                       x-value used in the calculations will be                       rounded down to the nearest integer. If                       &quot;0&quot;, it will be rounded to the nearest                       half-integer. For example &quot;0.5&quot;, &quot;12.5&quot;,                       &quot;-6.5&quot;</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$y_grid_odd</span><span class="var-description">: <p>a binary switch. If &quot;1&quot;, then the                       y-value used in the calculations will be                       rounded down to the nearest integer. If                       &quot;0&quot;, it will be rounded to the nearest                       half-integer. For example &quot;0.5&quot;, &quot;12.5&quot;,                       &quot;-6.5&quot;</p><p>The $apply_grids parameter is only false when calculating the  initial outer height and width of the rotated ellipse. Those  results then determine whether the grids are even or odd.</p></span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_getEllipseXsGivenY" id="_getEllipseXsGivenY"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">_getEllipseXsGivenY</span> (line <span class="line-number">5572</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Finds the two X values that correspond to a particular Y on an  ellipse that has rotated</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> containing the following parameters:         float $x_1         float $x_2         float $phi_1         float $phi_2</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			_getEllipseXsGivenY
+		</span>
+					(<span class="var-type">float</span>&nbsp;<span class="var-name">$y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$alpha</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$ellipse_a</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$ellipse_b</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$x_grid_odd</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$y_grid_odd</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$y</span><span class="var-description">: the y-value whose x-values need to be                       determined.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$alpha</span><span class="var-description">: the axis rotation angle</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$ellipse_a</span><span class="var-description">: the semi-major axis of the unrotated                       ellipse.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$ellipse_b</span><span class="var-description">: the semi-minor axis of the unrotated                       ellipse.</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$x_grid_odd</span><span class="var-description">: a binary switch. If &quot;1&quot;, then the                       x-value from the calculations will be                       rounded down to the nearest integer. If                       &quot;0&quot;, it will be rounded to the nearest                       half-integer. For example &quot;0.5&quot;, &quot;12.5&quot;,                       &quot;-6.5&quot;</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$y_grid_odd</span><span class="var-description">: <p>a binary switch. If &quot;1&quot;, then the                       y-value from the calculations will be                       rounded down to the nearest integer. If                       &quot;0&quot;, it will be rounded to the nearest                       half-integer. For example &quot;0.5&quot;, &quot;12.5&quot;,                       &quot;-6.5&quot;</p><p>Note that $ellipse_a can be less than $ellipse_b.</p></span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_getEllipseXYGivenPhi" id="_getEllipseXYGivenPhi"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">_getEllipseXYGivenPhi</span> (line <span class="line-number">5824</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Finds the X-Y pair that match a particular angle on an ellipse</p>
+<p class="description"><p>It uses the equation of an ellipse that has rotated anywhere in  the X-Y plane.</p><p>The formula uses first principles to find the X value of a  point on an ellipse that has rotated through angle $alpha. The  expression is done in terms of the major/minor axes, the  rotation angle $alpha, and the known final angle $phi of the  point.</p><p>After calculating the X value with the formula, it then finds  the Y-value using y = x * tan(phi)</p><p>The formula works even if the minor axis is greater than the  major axis.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> containing the following parameters:         int   $x         int   $y</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			_getEllipseXYGivenPhi
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$phi</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$alpha</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$ellipse_a</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$ellipse_b</span>, [<span class="var-type">bool</span>&nbsp;<span class="var-name">$apply_grids</span> = <span class="var-default">1</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$x_grid_odd</span> = <span class="var-default">1</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$y_grid_odd</span> = <span class="var-default">1</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$phi</span><span class="var-description">: the final angle of the point in the                       rotated ellipse, given by $phi = $theta +                       $alpha, where $theta would have been the                       point's angle with the origin in a                       non-rotated ellipse</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$alpha</span><span class="var-description">: the axis rotation angle</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$ellipse_a</span><span class="var-description">: the semi-major axis of the unrotated                       ellipse.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$ellipse_b</span><span class="var-description">: the semi-minor axis of the unrotated                       ellipse.</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$apply_grids</span><span class="var-description">: a binary switch. Defaults to 1. If                       true, then the $x_grid_odd and $y_grid_odd                       parameters should be applied to the                       returned x-y point.</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$x_grid_odd</span><span class="var-description">: a binary switch. Defaults to 1. If                       &quot;1&quot;, then the x-value from the                       calculations will be rounded down to the                       nearest integer. If &quot;0&quot;, it will be                       rounded to the nearest half-integer. For                       example &quot;0.5&quot;, &quot;12.5&quot;, &quot;-6.5&quot;</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$y_grid_odd</span><span class="var-description">: <p>a binary switch. Defaults to 1. If                       &quot;1&quot;, then the y-value from the                       calculations will be rounded down to the                       nearest integer. If &quot;0&quot;, it will be                       rounded to the nearest half-integer. For                       example &quot;0.5&quot;, &quot;12.5&quot;, &quot;-6.5&quot;</p><p>Note that $ellipse_a can be less than $ellipse_b.</p></span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_getLineEqnCoeffs" id="_getLineEqnCoeffs"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">_getLineEqnCoeffs</span> (line <span class="line-number">5937</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns the coefficients of the line equation given two points  on the line</p>
+<p class="description"><p>EllipseArc often needs to calculate the distance from a point  to a line, so this function standardises the process.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> containing the following parameters:         int   $line_x_coeff         int   $line_y_coeff         int   $line_x_coeff</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			_getLineEqnCoeffs
+		</span>
+					(<span class="var-type">float</span>&nbsp;<span class="var-name">$x_start</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$y_start</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$x_end</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$y_end</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$x_start</span><span class="var-description">: the x-value of the starting point of the                       line</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$y_start</span><span class="var-description">: the y-value of the starting point of the                       line</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$x_end</span><span class="var-description">: the x-value of the ending point of the                       line</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$y_end</span><span class="var-description">: the y-value of the ending point of the                       line</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_getLinePointsAllXs" id="_getLinePointsAllXs"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">_getLinePointsAllXs</span> (line <span class="line-number">6005</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns all the points on a line; ensuring that every X-value  between the start and end is represented</p>
+<p class="description"><p>It caters for lines that have very small slopes: if such lines  were plotted using only the y-values, they would have many  holes since the y-value can only map to one of the multiple  x-values.</p><p>This function ensures that all the points in the line are drawn  properly. It is mainly used by tchords.</p><p>The sister-function is _getLinePointsAllYs.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> <p>containing the following parameters:         int   $line_xy_points         int   $num_points         int   $line_slope</p><p>The last two variables are appended to $line_xy_points.</p><p>NOTE: The line always has the y-values increasing along the  line. This is deliberate because EllipseArc essentially parses  UP through the shape from the lowest to the highest point.</p></li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			_getLinePointsAllXs
+		</span>
+					(<span class="var-type">float</span>&nbsp;<span class="var-name">$x_start</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$y_start</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$x_end</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$y_end</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$x_grid_odd</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$y_grid_odd</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$x_start</span><span class="var-description">: the x-value of the starting point of                       the line</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$y_start</span><span class="var-description">: the y-value of the starting point of                       the line</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$x_end</span><span class="var-description">: the x-value of the ending point of the                       line</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$y_end</span><span class="var-description">: the y-value of the ending point of the                       line</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$x_grid_odd</span><span class="var-description">: a binary switch. If &quot;1&quot;, then the                       x-value used in the calculations will be                       rounded down to the nearest integer. If                       &quot;0&quot;, it will be rounded to the nearest                       half-integer. For example &quot;0.5&quot;, &quot;12.5&quot;,                       &quot;-6.5&quot;</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$y_grid_odd</span><span class="var-description">: a binary switch. If &quot;1&quot;, then the                       y-value used in the calculations will be                       rounded down to the nearest integer. If                       &quot;0&quot;, it will be rounded to the nearest                       half-integer. For example &quot;0.5&quot;, &quot;12.5&quot;,                       &quot;-6.5&quot;</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_getLinePointsAllYs" id="_getLinePointsAllYs"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">_getLinePointsAllYs</span> (line <span class="line-number">6233</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns all the points on a line; ensuring that every Y-value  between the start and end is represented</p>
+<p class="description"><p>It caters for lines that have very large slopes: if such lines  were plotted using only the x-values, they would have many  holes since the x-value can only map to one of the multiple  y-values.</p><p>This is the main function EllipseArc uses when getting line  points, as most lines can be built sufficiently from the  horizontal y-pixel information. This function prevents any gaps  appearing between the y-rows. It is only when building tchord  lines that the sister function (_getLinePointsAllXs) is  required.</p><p>The sister function is _getLinePointsAllXs</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> <p>containing the following parameters:         int   $line_xy_points         int   $num_points         int   $line_slope</p><p>The last two variables are appended to $line_xy_points.</p><p>NOTE: The line ALWAYS has the y-values increasing along the  line. This is deliberate because EllipseArc essentially parses  UP through the shape from the lowest to the highest point.</p></li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			_getLinePointsAllYs
+		</span>
+					(<span class="var-type">float</span>&nbsp;<span class="var-name">$x_start</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$y_start</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$x_end</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$y_end</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$x_grid_odd</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$y_grid_odd</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$x_start</span><span class="var-description">: the x-value of the starting point of                       the line</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$y_start</span><span class="var-description">: the y-value of the starting point of                       the line</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$x_end</span><span class="var-description">: the x-value of the ending point of the                       line</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$y_end</span><span class="var-description">: the y-value of the ending point of the                       line</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$x_grid_odd</span><span class="var-description">: a binary switch. If &quot;1&quot;, then the                       x-value used in the calculations will be                       rounded down to the nearest integer. If                       &quot;0&quot;, it will be rounded to the nearest                       half-integer. For example &quot;0.5&quot;, &quot;12.5&quot;,                       &quot;-6.5&quot;</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$y_grid_odd</span><span class="var-description">: a binary switch. If &quot;1&quot;, then the                       y-value used in the calculations will be                       rounded down to the nearest integer. If                       &quot;0&quot;, it will be rounded to the nearest                       half-integer. For example &quot;0.5&quot;, &quot;12.5&quot;,                       &quot;-6.5&quot;</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_getProjectedTChordXs" id="_getProjectedTChordXs"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">_getProjectedTChordXs</span> (line <span class="line-number">6452</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Used when the tchord does not have an explicit entry in  $t_line_points for a particular y-value</p>
+<p class="description"><p>The x-values on the inner and outer arcs can be compared  against the results of this function, and depending on the  value of $tchord_excl_side, the x-values might be added to  $filled_points_all</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> <p>containing the following parameters:                       the projected x-values that match this                       y-value. If there is a unique x-value,                       then it is duplicated whereas a horizontal                       line provides a large range.</p><p>It returns an array so that horizontal lines can be represented  correctly. Usually a line can only have one x-value for any  given y-value, but horizontal lines have an infinite number of  x-values for their y-value, which is why a range is returned.  For a regular line the x-value range is the same number; for a  horizontal line the values are a very large negative and a very  large positive number range.</p></li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			_getProjectedTChordXs
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$row_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$tchord_line_slope</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$tchord_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$tchord_y</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$x_grid_odd</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$y_grid_odd</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$row_y</span><span class="var-description">: the y-value of the point being                       processed</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$tchord_line_slope</span><span class="var-description">: the slope of the tchord line</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$tchord_x</span><span class="var-description">: an x-value on the tchord line</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$tchord_y</span><span class="var-description">: a y-value on the tchord line</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$x_grid_odd</span><span class="var-description">: a binary switch. If &quot;1&quot;, then                       the x-value used in the calculations will                       be rounded down to the nearest integer. If                       &quot;0&quot;, it will be rounded to the nearest                       half-integer. For example &quot;0.5&quot;, &quot;12.5&quot;,                       &quot;-6.5&quot;</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$y_grid_odd</span><span class="var-description">: a binary switch. If &quot;1&quot;, then                       the y-value used in the calculations will                       be rounded down to the nearest integer. If                       &quot;0&quot;, it will be rounded to the nearest                       half-integer. For example &quot;0.5&quot;, &quot;12.5&quot;,                       &quot;-6.5&quot;</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_getQuadrant" id="_getQuadrant"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">_getQuadrant</span> (line <span class="line-number">6499</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the Cartesian quadrant of the supplied angle</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">float</span>
+		<span class="method-name">
+			_getQuadrant
+		</span>
+					(<span class="var-type">float</span>&nbsp;<span class="var-name">$input_angle</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$offset</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$input_angle</span><span class="var-description">: the angle to check.</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$offset</span><span class="var-description">: a flag. Permits explicit control of                       the quadrant for angles that are multiples                       of 90. If true, the angle will be dropped                       down into the next lower quadrant. For                       example, 90 degrees would normally be                       grouped into the 2nd quadrant, however if                       $offset is TRUE then 90 degrees will be                       grouped in the 1st quadrant.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_getSign" id="_getSign"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">_getSign</span> (line <span class="line-number">6547</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the sign of the input parameter</p>
+<p class="description"><p>It makes the code look neater since the signs of variables are  frequently checked by EllipseArc</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> &quot;-1&quot; if the number is less than zero, &quot;1&quot;                       otherwise.</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			_getSign
+		</span>
+					(<span class="var-type">float</span>&nbsp;<span class="var-name">$input</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$input</span><span class="var-description">: the number to check.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_getTChordParams" id="_getTChordParams"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">_getTChordParams</span> (line <span class="line-number">6663</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Generates all the parameters of the tchord line for a tchord  shape</p>
+<p class="description"><p>Only tchords use this function.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> containing the following parameters:         bool  $definite_t_inner_arc_intersect true if the tchord                       intersects the inner arc         bool  $draw_tchord_line      true if the tchord line                       should be explicitly drawn         bool  $tchord_tangential     true if the tchord is                       considered tangential to the inner arc         array $t_line_points         an array containing all the                       x-y points that make up up the tchord         float $tchord_line_slope     the slope of the tchord                       line         array $t_inner_arc_intersect an array containing the                       points where the tchord approximately                       intersected the inner arc         float $smallest_t_x          the x-value corresponding                       to the lowest vertical pixel of the tchord         float $smallest_t_y          the y-value of the lowest                       vertical pixel of the tchord         float $largest_t_x           the x-value corresponding                       to the highest vertical pixel of the                       tchord         float $largest_t_y           the y-value of the highest                       vertical pixel of the tchord         float $p_x                   the x-value of the P                       intersection point of the tchord and the                       inner arc that is closest to the starting                       point of the tchord         float $p_y                   the y-value of the P                       intersection point of the tchord and the                       inner arc that is closest to the starting                       point of the tchord         float $q_x                   the x-value of the Q                       intersection point of the tchord and the                       inner arc that is closest to the ending                       point of the tchord         float $q_y                   the y-value of the Q                       intersection point of the tchord and the                       inner arc that is closest to the ending                       point of the tchord         float $p_x_neighbour         the x-value of the pixel                       that is just after point P         float $p_y_neighbour         the y-value of the pixel                       that is just after point P         float $q_x_neighbour         the x-value of the pixel                       that is just before point Q         float $q_y_neighbour         the y-value of the pixel                       that is just before point Q         float $inner_phi_start_angle the angle that point P                       makes with the origin         float $inner_phi_end_angle   the angle that point Q                       makes with the origin         string$tchord_excl_side      the area of the shape that                       is excluded because of the presence of the                       tchord line</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			_getTChordParams
+		</span>
+					(<span class="var-type">float</span>&nbsp;<span class="var-name">$alpha</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$phi_start_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$phi_end_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_radius_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_radius_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_alpha</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_phi_start_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_phi_end_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_radius_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$inner_radius_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_arc_x_max</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_arc_y_max</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$outer_radii_swapped</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$inner_radii_swapped</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$trim_tips</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$x_grid_odd</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$y_grid_odd</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$alpha</span><span class="var-description">: the axis rotation angle</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$phi_start_angle</span><span class="var-description">: the outer starting angle of                       the rotated shape</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$phi_end_angle</span><span class="var-description">: the outer starting angle of                       the rotated shape</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$outer_radius_x</span><span class="var-description">: the radius of the unrotated                       outer width</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$outer_radius_y</span><span class="var-description">: the radius of the unrotated                       outer height</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$inner_alpha</span><span class="var-description">: the axis rotation angle of                       the inner arc. It may be different from                       $alpha.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$inner_phi_start_angle</span><span class="var-description">: the starting angle of the                       inner arc. This is associated with point P</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$inner_phi_end_angle</span><span class="var-description">: the ending angle of the                       inner arc. This is associated with point Q</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$inner_radius_x</span><span class="var-description">: the radius of the unrotated                       inner arc width</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$inner_radius_y</span><span class="var-description">: the radius of the unrotated                       inner arc's height</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$outer_arc_x_max</span><span class="var-description">: The maximum x-value of the                       rotated shape. It is half of the total                       width-space of the rotated ellipse.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$outer_arc_y_max</span><span class="var-description">: The maximum y-value of the                       rotated shape. It is half of the total                       height-space of the rotated ellipse.</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$outer_radii_swapped</span><span class="var-description">: true if the outer width and                       height were swapped.</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$inner_radii_swapped</span><span class="var-description">: true if the inner width and                       height were swapped.</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$trim_tips</span><span class="var-description">: true if the inner and outer                       edges should be truncated.</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$x_grid_odd</span><span class="var-description">: true if the width-space                       uses an odd number of pixels.</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$y_grid_odd</span><span class="var-description">: <p>true if the height-space                       uses an odd number of pixels.</p><p>For consistency, some of the tchord parameters are determined  using the &quot;unrotated&quot; state of the shape eg when deciding if  the tchord line should be drawn for a particular shape. This  ensures that the shape will look similar no matter what angle  it is later rotated through. The unrotated state is taken as  the &quot;base shape&quot;. Internal calculations for the unrotated state  are typically prefixed with &quot;u_&quot;: for example, &quot;$u_p_x&quot; is the  x-value of the unrotated P intersection point.</p></span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_gridAdjust" id="_gridAdjust"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">_gridAdjust</span> (line <span class="line-number">7461</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adjusts the input number to the nearest lower integer or  half-integer</p>
+<p class="description"><p>For an odd grid, the provided number should fit into the  nearest LOWER integer. The regular PHP (int) function achieves  this goal.</p><p>For an even grid, the provided number should fit into the  nearest LOWER half-integer.</p><p>The result must never be a higher (absolute) value than the  original number, the same way that (int) never returns a higher  absolute value than the supplied number.</p><p>The following logic is used for even grids (as stated earlier,  odd grids just use the PHP (int)</p><p>(1) Let a = the original number (2) Let b = int(a) (3) Let c =  a - b (4) Let d = _getSign(c) (5) Let e = abs(c) (6) If c &lt;  0.5, it means that the original number was definitely lower  than the upper limit, so deduct another 0.5 from &quot;b&quot; to get the  correct half-integer value. Therefore result = b - d*0.5 (7) If  c &gt;= 0.5, it means that the original number was definitely  higher than the upper limit, so add another 0.5 to &quot;b&quot; to get  the correct half-integer value. Therefore result = b + d*0.5</p><p>NOTES A &quot;half-integer&quot; is defined as the number half-way  between two integer values. For example, 12.5, 13.5, 22.5 are  all half-integers.</p><p>A &quot;grid&quot; is defined by the number of pixels in the  [width]x[height] of a shape (1) a 20x20 circle has x and y  grids &quot;even&quot;; (2) a 31x31 circle has x and y grids &quot;odd&quot;; (3) a  51x20 ellipse has x grid &quot;odd&quot; and y grid &quot;even&quot;; (&quot;51&quot; is an  odd number; &quot;20&quot; is an even number)</p><p>Grids make it possible to detect the difference between a 20x20  circle and a 21x21 circle (the latter will be slightly larger,  and will probably have the pointy tips since the middle of the  circle is an explicit row/column in the circle's parameters.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">float</span>
+		<span class="method-name">
+			_gridAdjust
+		</span>
+					(<span class="var-type">float</span>&nbsp;<span class="var-name">$number</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$grid_is_odd</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$number</span><span class="var-description">: the number to process.</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$grid_is_odd</span><span class="var-description">: a flag. It is true if the grid-type                       is odd. (&quot;true&quot; also equals &quot;1&quot; which is                       itself an odd number)</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_innerArcIntersectsT" id="_innerArcIntersectsT"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">_innerArcIntersectsT</span> (line <span class="line-number">7634</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines where the tchord intersects the inner arc</p>
+<p class="description"><p>It inspects all the points on the tchord and sees which ones  give acceptable answers in the inner arc's ellipse equation. A  point only passes the test if the $ellipse_eqn value is  &quot;0.95&lt;$ellipse_eqn&lt;1&quot;</p><p>It uses the following process</p><p><ol><li>Find the distance of ($t_x,$t_y) from the origin. Store this as
+      $t_o_length</li><li>Find the distance of ($t_x,$t_y) from the major axis of the
+      inner arc. It is perpendicular to the major axis. Store
+      this as $unrotated_y</li><li>Using Pythagoras, find the distance from the origin to the
+      perpendicular intersection of $unrotated_y. Store this as
+      $unrotated_x.</li><li>$unrotated_x and $unrotated_y are the &quot;unrotated&quot; projection of
+      ($t_x,$t_y) on the inner arc's ellipse; it is now as if
+      the inner arc had not been rotated.</li><li>Plug $unrotated_x and $unrotated_y into the ellipse equation
+      for the inner arc. Store the result as $ellipse_eqn.</li><li>If &quot;0.95&lt;$ellipse_eqn&lt;1&quot;, then ($t_x,$t_y) lies on the inner
+      ellipse.</li></ol></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> 1 if ($t_x,$t_y) lies on the inner arc's ellipse,                       otherwise 0</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			_innerArcIntersectsT
+		</span>
+					(<span class="var-type">float</span>&nbsp;<span class="var-name">$t_x</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$t_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$alpha</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$ellipse_a</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$ellipse_b</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$x_grid_odd</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$y_grid_odd</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$t_x</span><span class="var-description">: the x-value of the tchord point being                       checked</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$t_y</span><span class="var-description">: the y-value of the tchord point being                       checked. It is always an integer since it                       is a key in the $t_line_points array</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$alpha</span><span class="var-description">: the axis rotation angle</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$ellipse_a</span><span class="var-description">: the semi-major axis of the unrotated                       inner ellipse</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$ellipse_b</span><span class="var-description">: the semi-minor axis of the unrotated                       inner ellipse</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$x_grid_odd</span><span class="var-description">: a binary switch. If &quot;1&quot;, then the                       x-value from the calculations will be                       rounded down to the nearest integer. If                       &quot;0&quot;, it will be rounded to the nearest                       half-integer. For example &quot;0.5&quot;, &quot;12.5&quot;,                       &quot;-6.5&quot;</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$y_grid_odd</span><span class="var-description">: <p>a binary switch. If &quot;1&quot;, then the                       y-value from the calculations will be                       rounded down to the nearest integer. If                       &quot;0&quot;, it will be rounded to the nearest                       half-integer. For example &quot;0.5&quot;, &quot;12.5&quot;,                       &quot;-6.5&quot;</p><p>To find the appropriate range for the $ellipse_eqn to be, this  function was tested on a 80x80 circle and 60x80 ellipse.</p><p>Testing on a circle 80x80, with the tchord going from 45 to 225  degrees counterclockwise. DEBUG:  &quot;test=ff0000=40=20=tchord,0,0,0,80,80,45,225|&quot; The best  intersections were at (15,15) and (-15,-15)   For BOTH intersection points:     ------------------------------------------------------       TChord Pixels     |  Value             Comment     ------------------------------------------------------       2 pixel(s) before    0.76643990929705  (too small) <ol><li>pixel(s) before    0.88888888888889  (too small)</li></ol><ol><li>pixel(s)           1.0204081632653   (just right)</li><li>pixel(s) after     1.1609977324263   (too large)</li><li>pixel(s) after     1.3106575963719   (too large)</li></ol>    ------------------------------------------------------</p><p>DEBUG: &quot;test=ff0000=40=20=tchord,0,0,0,80,80,45,225|&quot; DEBUG:  &quot;test=ff00ff=40=20=tchordflipvfliph,0,0,0,80,80,45,225|&quot;</p><p>Testing on an ellipse 60x80, with the tchord going from -45 to  -125 degrees counterclockwise. DEBUG:  &quot;myshape=0000ff=40=-10=tchord,30,0,0,60,80,-45,-125|&quot; The best  intersections were (23,-14) and (5,-28)   For (23,-14):     ------------------------------------------------------       TChord Pixels     |  Value             Comment     ------------------------------------------------------       2 pixel(s) before    0.85260544795973  (too small) <ol><li>pixel(s) before    0.90152935153667  (too small)</li></ol><ol><li>pixel(s)           0.95919477865869  (just right)</li><li>pixel(s) after     1.0364771235811   (too large)</li><li>pixel(s) after     1.1078683315057   (too large)</li></ol>    ------------------------------------------------------</p><p>For (5,-28):     ------------------------------------------------------       TChord Pixels     |  Value             Comment     ------------------------------------------------------       2 pixel(s) before    0.87745197230791  (too small) <ol><li>pixel(s) before    0.94837912304452  (too small)</li></ol><ol><li>pixel(s)           0.95656298735608  (just right)</li><li>pixel(s) after     1.0412159188952   (too large)</li><li>pixel(s) after     1.1346103739795   (too large)</li></ol>    ------------------------------------------------------</p><p>Based on these results, a lower limit of &quot;0.95&quot; and an upper  limit of &quot;1.05&quot; will always catch the best pixel, and maybe the  pixel to its right or left. Even these right/left pixels should  be good enough for the shape.</p><p>NOTE: This testing was done LONG BEFORE the &quot;grid&quot; system was  implemented. In many cases the grid system meant that pixels  could be selected with better precision. However the &quot;0.95 to  1.05&quot; range still gave good results with the grids so this  range was not fine-tuned any further.</p></span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_pointDistanceToLine" id="_pointDistanceToLine"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">_pointDistanceToLine</span> (line <span class="line-number">7827</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Finds the distance from a point to a given line</p>
+<p class="description"><p>It uses the following process</p><p>For the distance from any point to a line, if the equation of  the line is of the form a*x + b*y + c=0, then the distance of  point (m,n) from the line is</p><p>distance = (abs(a*m + b*n + c)) / sqrt(a^2 + b^2)</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the perpendicular distance from the point to the                       line.</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">float</span>
+		<span class="method-name">
+			_pointDistanceToLine
+		</span>
+					(<span class="var-type">float</span>&nbsp;<span class="var-name">$point_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$point_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$line_x_coeff</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$line_y_coeff</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$line_c_coeff</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$point_x</span><span class="var-description">: the x-coordinate of the point</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$point_y</span><span class="var-description">: the y-coordinate of the point</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$line_x_coeff</span><span class="var-description">: the x-coefficient of the line                       equation.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$line_y_coeff</span><span class="var-description">: the y-coefficient of the line                       equation.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$line_c_coeff</span><span class="var-description">: the constant of the line equation.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_sanitiseShapeInputs" id="_sanitiseShapeInputs"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">_sanitiseShapeInputs</span> (line <span class="line-number">7933</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">cleans up the supplied inputs and confirms that the desired  shape can be drawn successfully</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> containing the following parameters:         int    $_errors          the sum of the error codes.         string $obj              the standardised type of shape         float  $outer_x          the full revised width of the                       shape         float  $outer_y          the full revised height of the                       shape         int    $thickness_x      the width thickness         int    $thickness_y      the height thickness         float  $start_angle      the starting angle of the                       revised shape         float  $end_angle        the ending angle of the revised                       shape         float  $alpha            the axis of rotation         bool   $outer_radii_swapped true if the width and height                       were swapped         bool   $filled           true if the shape should be                       filled; false if it is outlined         bool   $comp_check       true if the complement of the                       shape should be drawn         bool   $flipv_check      true if the shape is flipped                       vertically         bool   $fliph_check      true if the shape is flipped                       horizontally         bool   $trim_tips        true if the inner and outer                       edges should be truncated.         bool   $smooth_check     true if vertical isolated                       pixels should be truncated</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			_sanitiseShapeInputs
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$obj</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_x</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$outer_y</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$orig_thickness</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$height_thickness</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$start_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$end_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$alpha</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$obj</span><span class="var-description">: the type of shape</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$outer_x</span><span class="var-description">: the full width of the shape</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$outer_y</span><span class="var-description">: the full height of the shape</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$orig_thickness</span><span class="var-description">: the thickness. It can be either                       a single number (for uniform thickness) or                       a string containing two numbers separated                       by a forward slash &quot;/&quot;. The first number                       is the thickness of the width and the                       second number is the thickness of the                       height. For either number, a negative                       value means that the preference is for the                       shape to be outlined instead of being                       filled. The shape will only be outlined if                       BOTH numbers are negative.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$height_thickness</span><span class="var-description">: the thickness on the unrotated                       y-axis. If supplied, overrides the height                       that the $orig_thickness parameter would                       have provided. It is a single number and                       it only modifies the height.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$start_angle</span><span class="var-description">: the starting angle of the                       unrotated shape</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$end_angle</span><span class="var-description">: the ending angle of the                       unrotated shape</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$alpha</span><span class="var-description">: <p>the axis rotation angle</p><p>NOTE: For an unfilled (outlined) shape, both the  $orig_thickness and $height_thickness values must be negative  numbers.</p><p>NOTE: To make development easier, vertical shapes (shapes that  have their outer major axis along the y-axis) are internally  rotated through 90 degrees clockwise so the outer major axis is  always on the x-axis. The angles are also updated to reflect  this additional rotation.</p></span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_tChordPointAfter" id="_tChordPointAfter"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">_tChordPointAfter</span> (line <span class="line-number">8359</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Finds the next x-y point on the tchord which is just after the  point that was supplied as input</p>
+<p class="description"><p>Only tchords use this function</p><p>The tchord line ALWAYS goes from the starting point to the  ending point of the outer arc. At the points where the tchord  intersects the inner arc (points &quot;P&quot; and &quot;Q&quot; respectively), the  pixel just after P (&quot;P_neighbour&quot;) and the one just before Q  (&quot;Q_neighbour&quot;) need to be known. P is always closer to the  starting point, and Q is always closer to the ending point.  Sometimes the direction of the tchord line means that the  positions of P and Q are swapped so the point before P and the  one after Q have to be found instead.</p><p>_tChordPointAfter always finds the point AFTER whichever point  is supplied.</p><p>In cases where the tchord line has to be drawn from P to Q, it  is visually better to take points from the tchord line instead  of trying to draw an approximate line between them by other  methods. This way the line looks smooth.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> containing the following parameters:         int   $x_after         int   $y_after</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			_tChordPointAfter
+		</span>
+					(<span class="var-type">float</span>&nbsp;<span class="var-name">$t_x</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$t_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$largest_t_y</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">&$t_line_points</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$x_grid_odd</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$y_grid_odd</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$t_x</span><span class="var-description">: the x-value of the supplied pixel</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$t_y</span><span class="var-description">: the y-value of the supplied pixel</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$largest_t_y</span><span class="var-description">: the largest y-value of the tchord.                       It may be for the starting point or the                       ending point. The desired pixel's y-value                       will never be greater than this value.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">&$t_line_points</span><span class="var-description">: the array containing all the                       points of the tchord.</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$x_grid_odd</span><span class="var-description">: a binary switch.</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$y_grid_odd</span><span class="var-description">: a binary switch. If &quot;1&quot;, then the                       y-value is used directly as the key in                       $t_line_points. If &quot;0&quot;, the y-value must                       be incremented by &quot;0.5&quot; in order to match                       the integer key in $t_line_points.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_tChordPointBefore" id="_tChordPointBefore"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">_tChordPointBefore</span> (line <span class="line-number">8463</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Finds the next x-y point on the tchord which is just before the  point that was supplied as input</p>
+<p class="description"><p>Only tchords use this function</p><p>The tchord line ALWAYS goes from the starting point to the  ending point of the outer arc. At the points where the tchord  intersects the inner arc (points &quot;P&quot; and &quot;Q&quot; respectively), the  pixel just after P (&quot;P_neighbour&quot;) and the one just before Q  (&quot;Q_neighbour&quot;) need to be known. P is always closer to the  starting point, and Q is always closer to the ending point.  Sometimes the direction of the tchord line means that the  positions of P and Q are swapped so the point before P and the  one after Q have to be found instead.</p><p>_tChordPointBefore always finds the point BEFORE whichever  point is supplied.</p><p>In cases where the tchord line has to be drawn from P to Q, it  is visually better to take points from the tchord line instead  of trying to draw an approximate line between them by other  methods. This way the line looks smooth.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> containing the following parameters:         int   $x_before         int   $y_before</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			_tChordPointBefore
+		</span>
+					(<span class="var-type">float</span>&nbsp;<span class="var-name">$t_x</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$t_y</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$smallest_t_y</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">&$t_line_points</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$x_grid_odd</span>, <span class="var-type">bool</span>&nbsp;<span class="var-name">$y_grid_odd</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$t_x</span><span class="var-description">: the x-value of the supplied pixel</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$t_y</span><span class="var-description">: the y-value of the supplied pixel.                       It is one of the integer keys of                       $t_line_points</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$smallest_t_y</span><span class="var-description">: the smallest y-value of the                       tchord. It may be for the starting point                       or the ending point. The desired pixel's                       y-value will never be less than this                       value.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">&$t_line_points</span><span class="var-description">: the array containing all the                       points of the tchord.</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$x_grid_odd</span><span class="var-description">: a binary switch. If &quot;1&quot;, then the                       x-value from the calculations will be                       rounded down to the nearest integer. If                       &quot;0&quot;, it will be rounded to the nearest                       half-integer. For example &quot;0.5&quot;, &quot;12.5&quot;,                       &quot;-6.5&quot;</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$y_grid_odd</span><span class="var-description">: a binary switch. If &quot;1&quot;, then the                       y-value from the calculations will be                       rounded down to the nearest integer. If                       &quot;0&quot;, it will be rounded to the nearest                       half-integer. For example &quot;0.5&quot;, &quot;12.5&quot;,                       &quot;-6.5&quot;</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sat, 10 Dec 2011 19:19:01 +1100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

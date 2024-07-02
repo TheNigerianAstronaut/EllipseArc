@@ -1,0 +1,137 @@
+|/*
+Author:      Austin Ekwebelam
+Date:        20111017
+Project:     EllipseArc
+Sub-project: Megatest
+Filename:    megatest_input_file50.txt
+Purpose:     Showing the effects of the flipv, fliph and comp EllipseArc modifiers
+*/|
+canvas=png=1400=900=#ffffff=0=0=200=200|
+imagefile=megatest_50_modifier_samples.png|
+imageborder=0000ff=0=1=|
+//|
+//|
+movegroup=img1,60,110|
+//|
+img1_description=#000000=0=0=text,courbd,12,15,15,0,ORIGINAL SHAPES:
+|
+move=img1_description,-50,-100|
+//|
+img1_shape_tags=#000000=0=0=text,courbd,10,15,15,0,\n
+arc             chord              segment             tchord             tchord            arc               arc               ellipse           circle
+|
+move=img1_shape_tags,-50,-110|
+//|
+img1_shape01=ff0000=0=20=arc            , 30, 000,0,90,80,45,0|
+img1_shape02=00ff00=0=20=chord          , 30, 150,0,90,80,45,0|
+img1_shape04=00ffff=0=20=segment        , 70, 300,0,90,80,45,0|
+img1_shape03=0000ff=0=20=tchord         ,130, 450,0,90,80,90,0|
+img1_shape07=ff7700=0=20/5=tchord       ,130, 600,0,90,80,90,0|
+img1_shape07=00ffff=0=1/20=arc          ,130, 750,0,90,80,1,178|
+img1_shape07=777777=0=20=arc            ,130, 900,0,90,80,1,178|
+img1_shape05=ff00ff=0=20=ellipse        , 30,1050,0,90,80,45,0|
+img1_shape06=f0f033=0=20=circle         , 30,1200,0,90,80,45,0|
+//|
+img1_line=0000ff=0=1=lineangle,-200,75,0,2000|
+//|
+//|
+//|
+//|
+movegroup=img2,60,285|
+//|
+img2_description=#000000=0=0=text,courbd,12,15,15,0,"FLIPV": Flipping the shapes vertically around the x-axis.
+|
+move=img2_description,-50,-100|
+//|
+img2_shape_tags=#000000=0=0=text,courbd,10,15,15,0,\n
+arcflipv        chordflipv         segmentflipv        tchordflipv        tchordflipv       arcflipv          arcflipv          ellipseflipv      circleflipv
+|
+move=img2_shape_tags,-50,-110|
+//|
+img2_shape01=ff0000=0=20=arcflipv       , 30, 000,0,90,80,45,0|
+img2_shape02=00ff00=0=20=chordflipv     , 30, 150,0,90,80,45,0|
+img2_shape04=00ffff=0=20=segmentflipv   , 70, 300,0,90,80,45,0|
+img2_shape03=0000ff=0=20=tchordflipv    ,130, 450,0,90,80,90,0|
+img2_shape07=ff7700=0=20/5=tchordflipv  ,130, 600,0,90,80,90,0|
+img2_shape07=00ffff=0=1/20=arcflipv     ,130, 750,0,90,80,1,178|
+img2_shape07=777777=0=20=arcflipv       ,130, 900,0,90,80,1,178|
+img2_shape05=ff00ff=0=20=ellipseflipv   , 30,1050,0,90,80,45,0|
+img2_shape06=f0f033=0=20=circleflipv    , 30,1200,0,90,80,45,0|
+//|
+img2_line=0000ff=0=1=lineangle,-200,75,0,2000|
+//|
+//|
+//|
+//|
+movegroup=img3,60,460|
+//|
+img3_description=#000000=0=0=text,courbd,12,15,15,0,"FLIPH": Flipping the shapes horizontally around the y-axis.
+|
+move=img3_description,-50,-100|
+//|
+img3_shape_tags=#000000=0=0=text,courbd,10,15,15,0,\n
+arcfliph        chordfliph         segmentfliph        tchordfliph        tchordfliph       arcfliph          arcfliph          ellipsefliph      circlefliph
+|
+move=img3_shape_tags,-50,-110|
+//|
+img3_shape01=ff0000=0=20=arcfliph       , 30, 000,0,90,80,45,0|
+img3_shape02=00ff00=0=20=chordfliph     , 30, 150,0,90,80,45,0|
+img3_shape04=00ffff=0=20=segmentfliph   , 70, 300,0,90,80,45,0|
+img3_shape03=0000ff=0=20=tchordfliph    ,130, 450,0,90,80,90,0|
+img3_shape07=ff7700=0=20/5=tchordfliph  ,130, 600,0,90,80,90,0|
+img3_shape07=00ffff=0=1/20=arcfliph     ,130, 750,0,90,80,1,178|
+img3_shape07=777777=0=20=arcfliph       ,130, 900,0,90,80,1,178|
+img3_shape05=ff00ff=0=20=ellipsefliph   , 30,1050,0,90,80,45,0|
+img3_shape06=f0f033=0=20=circlefliph    , 30,1200,0,90,80,45,0|
+//|
+img3_line=0000ff=0=1=lineangle,-200,75,0,2000|
+//|
+//|
+//|
+//|
+movegroup=img4,60,635|
+//|
+img4_description=#000000=0=0=text,courbd,12,15,15,0,"COMP": The complement of the shape - the opposite side.
+|
+move=img4_description,-50,-100|
+//|
+img4_shape_tags=#000000=0=0=text,courbd,10,15,15,0,\n
+arccomp         chordcomp          segmentcomp         tchordcomp         tchordcomp        arccomp           arccomp           ellipsecomp       circlecomp
+|
+move=img4_shape_tags,-50,-110|
+//|
+img4_shape01=ff0000=0=20=arccomp        , 30, 000,0,90,80,45,0|
+img4_shape02=00ff00=0=20=chordcomp      , 30, 150,0,90,80,45,0|
+img4_shape04=00ffff=0=20=segmentcomp    , 70, 300,0,90,80,45,0|
+img4_shape03=0000ff=0=20=tchordcomp     ,130, 450,0,90,80,90,0|
+img4_shape07=ff7700=0=20/5=tchordcomp   ,130, 600,0,90,80,90,0|
+img4_shape07=00ffff=0=1/20=arccomp      ,130, 750,0,90,80,1,178|
+img4_shape07=777777=0=20=arccomp        ,130, 900,0,90,80,1,178|
+img4_shape05=ff00ff=0=20=ellipsecomp    , 30,1050,0,90,80,45,0|
+img4_shape06=f0f033=0=20=circlecomp     , 30,1200,0,90,80,45,0|
+//|
+img4_line=0000ff=0=1=lineangle,-200,75,0,2000|
+//|
+//|
+//|
+//|
+movegroup=img5,60,810|
+//|
+img5_description=#000000=0=0=text,courbd,12,15,15,0,"FLIPHFLIPV": Flipping the shapes horizontally and vertically
+|
+move=img5_description,-50,-100|
+//|
+img5_shape_tags=#000000=0=0=text,courbd,10,15,15,0,\n
+arcfliphflipv   chordfliphflipv    segmentfliphflipv   tchordfliphflipv   tchordfliphflipv  arcfliphflipv     arcfliphflipv     ellipsefliphflipv circleflipv
+|
+move=img5_shape_tags,-50,-110|
+//|
+img5_shape01=ff0000=0=20=arcfliphflipv          , 30, 000,0,90,80,45,0|
+img5_shape02=00ff00=0=20=chordfliphflipv        , 30, 150,0,90,80,45,0|
+img5_shape04=00ffff=0=20=segmentfliphflipv      , 70, 300,0,90,80,45,0|
+img5_shape03=0000ff=0=20=tchordfliphflipv       ,130, 450,0,90,80,90,0|
+img5_shape07=ff7700=0=20/5=tchordfliphflipv     ,130, 600,0,90,80,90,0|
+img5_shape07=00ffff=0=1/20=arcfliphflipv        ,130, 750,0,90,80,1,178|
+img5_shape07=777777=0=20=arcfliphflipv          ,130, 900,0,90,80,1,178|
+img5_shape05=ff00ff=0=20=ellipsefliphflipv      , 30,1050,0,90,80,45,0|
+img5_shape06=f0f033=0=20=circlefliphflipv       , 30,1200,0,90,80,45,0|

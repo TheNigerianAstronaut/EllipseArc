@@ -1,0 +1,123 @@
+<?php
+// Demo showing different shape-types from EllipseArc
+
+require_once 'EllipseArc.php';
+
+$image_width  = 1000;
+$image_height =  300;
+
+// create the image
+$img = imagecreatetruecolor($image_width, $image_height);
+
+// Allocate some plain colors
+$white_plain = imagecolorallocate($img, 0xff, 0xff, 0xff);
+
+// allocate some alpha colors at 20% transparency
+$trans = 20 * 127 / 100;
+
+$white_alpha   = imagecolorallocatealpha($img, 0xff, 0xff, 0xff, $trans);
+$red_alpha     = imagecolorallocatealpha($img, 0xff, 0x00, 0x00, $trans);
+$orange_alpha  = imagecolorallocatealpha($img, 0xff, 0x77, 0x00, $trans);
+$yellow_alpha  = imagecolorallocatealpha($img, 0xff, 0xff, 0x00, $trans);
+$green_alpha   = imagecolorallocatealpha($img, 0x00, 0xff, 0x00, $trans);
+$blue_alpha    = imagecolorallocatealpha($img, 0x00, 0x00, 0xff, $trans);
+$cyan_alpha    = imagecolorallocatealpha($img, 0x00, 0xff, 0xff, $trans);
+$magenta_alpha = imagecolorallocatealpha($img, 0xff, 0x00, 0xff, $trans);
+$gray_alpha    = imagecolorallocatealpha($img, 0x77, 0x77, 0x77, $trans);
+$black_alpha   = imagecolorallocatealpha($img, 0x00, 0x00, 0x00, $trans);
+
+// Set the background colour
+imagefilledrectangle($img, 0, 0,
+   ($image_width - 1), ($image_height - 1), $white_plain);
+
+
+//
+// The format is
+// IMAGE_ELLIPSEARC_wrapper(
+//    image, centre_x, centre_y, full_width, full_height,
+//    start_angle, end_angle, color, shape_name, alpha_angle,
+//    width_thickness, height_thickness
+// )
+//
+
+
+//
+// This batch will use the IMAGE_ELLIPSEARC_wrapper() method.
+// They will appear on the 1st row.  They are filled shapes
+//
+// Notice that the height thickness can be specified either as a
+// separate parameter ( ...20, 5) or as a string (..."20/5")
+//
+
+IMAGE_ELLIPSEARC_wrapper(
+   $img, 100, 100, 90, 80, 45, 0, $red_alpha,     'arc',     30, 20);
+
+IMAGE_ELLIPSEARC_wrapper(
+   $img, 200, 100, 90, 80, 45, 0, $orange_alpha,  'chord',   30, 20);
+
+IMAGE_ELLIPSEARC_wrapper(
+   $img, 300, 100, 90, 80, 45, 0, $yellow_alpha,  'circle',  30, 20);
+
+IMAGE_ELLIPSEARC_wrapper(
+   $img, 400, 100, 90, 80, 45, 0, $green_alpha,   'ellipse', 30, 20);
+
+IMAGE_ELLIPSEARC_wrapper(
+   $img, 500, 100, 90, 80, 45, 0, $blue_alpha,    'pie',     30, 20);
+
+IMAGE_ELLIPSEARC_wrapper(
+   $img, 600, 100, 90, 80, 45, 0, $cyan_alpha,    'tchord',  30, 20);
+
+IMAGE_ELLIPSEARC_wrapper(
+   $img, 700, 100, 90, 80, 45, 0, $magenta_alpha, 'arc',     30, 20, 5);
+
+IMAGE_ELLIPSEARC_wrapper(
+   $img, 800, 100, 90, 80, 45, 0, $gray_alpha,    'ellipse', 30, "20/5");
+
+IMAGE_ELLIPSEARC_wrapper(
+   $img, 900, 100, 90, 80, 45, 0, $black_alpha,   'tchord',  30, "20/5");
+
+
+//
+// The batch below use the direct Image_EllipseArc() class method
+// They will appear on the 2nd row.  They are outlined shapes
+//
+// Outlined shapes always have negative thickness values.  The width and
+// height thicknesses must both be negative.
+//
+
+$myobject01 = new Image_EllipseArc(
+   $img, 100, 200, 90, 80, 45, 0, $red_alpha,     'arc',     30, -20);
+
+$myobject02 = new Image_EllipseArc(
+   $img, 200, 200, 90, 80, 45, 0, $orange_alpha,  'chord',   30, -20);
+
+$myobject03 = new Image_EllipseArc(
+   $img, 300, 200, 90, 80, 45, 0, $yellow_alpha,  'circle',  30, -20);
+
+$myobject04 = new Image_EllipseArc(
+   $img, 400, 200, 90, 80, 45, 0, $green_alpha,   'ellipse', 30, -20);
+
+$myobject05 = new Image_EllipseArc(
+   $img, 500, 200, 90, 80, 45, 0, $blue_alpha,    'pie',     30, -20);
+
+$myobject06 = new Image_EllipseArc(
+   $img, 600, 200, 90, 80, 45, 0, $cyan_alpha,    'tchord',  30, -20);
+
+$myobject07 = new Image_EllipseArc(
+   $img, 700, 200, 90, 80, 45, 0, $magenta_alpha, 'arc',     30, -20, -5);
+
+$myobject08 = new Image_EllipseArc(
+   $img, 800, 200, 90, 80, 45, 0, $gray_alpha,    'ellipse', 30, "-20/-5");
+
+$myobject09 = new Image_EllipseArc(
+   $img, 900, 200, 90, 80, 45, 0, $black_alpha,   'tchord',  30, "-20/-5");
+
+
+$some_variable = $myobject03->reportStatus();
+
+
+$img_file_name = "sample_shapes.png";
+
+header('Content-Type: image/png');
+imagepng($img, $img_file_name); // to save the image
+?>

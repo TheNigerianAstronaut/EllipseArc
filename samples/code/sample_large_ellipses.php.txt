@@ -1,0 +1,66 @@
+<?php
+//
+// Demo showing large ellipses EllipseArc
+//
+
+require_once 'EllipseArc.php';
+
+$img_width  = 4600;
+$img_height = 2000;
+
+// create image
+$img = imagecreatetruecolor($img_width, $img_height);
+
+
+// allocate some alpha colors at 40% transarency
+$trans = 40 * 127 / 100;
+
+$white_alpha   = imagecolorallocatealpha($img, 0xff, 0xff, 0xff, $trans);
+$red_alpha     = imagecolorallocatealpha($img, 0xff, 0x00, 0x00, $trans);
+$orange_alpha  = imagecolorallocatealpha($img, 0xff, 0x77, 0x00, $trans);
+$yellow_alpha  = imagecolorallocatealpha($img, 0xff, 0xff, 0x00, $trans);
+$green_alpha   = imagecolorallocatealpha($img, 0x00, 0xff, 0x00, $trans);
+$blue_alpha    = imagecolorallocatealpha($img, 0x00, 0x00, 0xff, $trans);
+$cyan_alpha    = imagecolorallocatealpha($img, 0x00, 0xff, 0xff, $trans);
+$magenta_alpha = imagecolorallocatealpha($img, 0xff, 0x00, 0xff, $trans);
+$gray_alpha    = imagecolorallocatealpha($img, 0x77, 0x77, 0x77, $trans);
+$black_alpha   = imagecolorallocatealpha($img, 0x00, 0x00, 0x00, $trans);
+
+//
+// The format is:
+// IMAGE_ELLIPSEARC_wrapper(
+//     image_id, centre_x, centre_y, width, height,
+//     start_angle, end_angle, color, shape,
+//     alpha_angle, width_thickness, height_thickness
+// );
+//
+// NOTE: 'Ellipses' do not care about the value of the start_angle and
+// end_angle. They are internally changed to "0" and "360" respectively.
+//
+
+IMAGE_ELLIPSEARC_wrapper(
+    $img, 1250, 1000, 2300, 1000, 0, 0, $red_alpha, 'ellipse', 30, 200);
+
+IMAGE_ELLIPSEARC_wrapper(
+    $img, 1500, 1000, 2300, 1000, 5, 0, $orange_alpha, 'ellipse', 0, 200);
+
+IMAGE_ELLIPSEARC_wrapper(
+    $img, 2000, 1000, 2300, 1000, 0, 0, $yellow_alpha, 'ellipse', -30, 200);
+
+IMAGE_ELLIPSEARC_wrapper(
+    $img, 2500, 1000, 2300, 1000, 6, 0, $green_alpha, 'ellipse', 30, 200);
+
+IMAGE_ELLIPSEARC_wrapper(
+    $img, 3000, 1000, 2300, 1000, 0, 1, $blue_alpha, 'ellipse', 0, 200);
+
+IMAGE_ELLIPSEARC_wrapper(
+    $img, 3250, 1000, 2300, 1000, 9, 0, $cyan_alpha, 'ellipse', -30, 200);
+
+IMAGE_ELLIPSEARC_wrapper(
+    $img, 2250, 1000, 3800, 1800, 0, 0, $magenta_alpha, 'ellipse', 0, 200);
+
+$img_file_name = "sample_large_ellipses.png";
+
+header('Content-Type: image/png');
+imagepng($img, $img_file_name);    // to save the image
+?>

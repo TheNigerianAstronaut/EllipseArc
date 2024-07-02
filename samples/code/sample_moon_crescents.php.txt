@@ -1,0 +1,87 @@
+<?php
+//
+// Demo showing moon crescents from EllipseArc
+//
+
+require_once 'EllipseArc.php';
+
+$image_width  = 1000;
+$image_height =  200;
+
+// create the image
+$img = imagecreatetruecolor($image_width, $image_height);
+
+// Allocate some plain colors
+$white_plain = imagecolorallocate($img, 0xff, 0xff, 0xff);
+
+// allocate some alpha colors at 20% transparency
+$trans = 20 * 127 / 100;
+
+$white_alpha   = imagecolorallocatealpha($img, 0xff, 0xff, 0xff, $trans);
+$red_alpha     = imagecolorallocatealpha($img, 0xff, 0x00, 0x00, $trans);
+$orange_alpha  = imagecolorallocatealpha($img, 0xff, 0x77, 0x00, $trans);
+$yellow_alpha  = imagecolorallocatealpha($img, 0xff, 0xff, 0x00, $trans);
+$green_alpha   = imagecolorallocatealpha($img, 0x00, 0xff, 0x00, $trans);
+$blue_alpha    = imagecolorallocatealpha($img, 0x00, 0x00, 0xff, $trans);
+$cyan_alpha    = imagecolorallocatealpha($img, 0x00, 0xff, 0xff, $trans);
+$magenta_alpha = imagecolorallocatealpha($img, 0xff, 0x00, 0xff, $trans);
+$gray_alpha    = imagecolorallocatealpha($img, 0x77, 0x77, 0x77, $trans);
+$black_alpha   = imagecolorallocatealpha($img, 0x00, 0x00, 0x00, $trans);
+
+//    // Set the background colour
+//    imagefilledrectangle($img, 0, 0,
+//        ($image_width - 1), ($image_height - 1), $white_plain);
+
+
+//
+// The format is
+// IMAGE_ELLIPSEARC_wrapper(
+//    image, centre_x, centre_y, full_width, full_height,
+//    start_angle, end_angle, color, shape_name, alpha_angle,
+//    width_thickness, height_thickness
+// )
+//
+
+//
+// The moon-crescent shape theoretically goes from 0 to 180 degrees,
+// however the drawn shape tends to look better if you go from
+// 1 to 179 or from 2 to 178 degrees.
+//
+// Also set the smaller thickness to be "1" or "2" for best results.
+//
+// Always ensure that the shape looks proper before you
+// apply the alpha_angle rotation.
+//
+
+IMAGE_ELLIPSEARC_wrapper(
+    $img, 100, 100, 90, 80, 0, 180, $red_alpha,       'arc', 0, 2, 15);
+
+IMAGE_ELLIPSEARC_wrapper(
+    $img, 200, 100, 90, 80, 0, 178, $orange_alpha,    'arc', 0, "2/15");
+
+IMAGE_ELLIPSEARC_wrapper(
+    $img, 300, 100, 80, 90, 180, 360, $yellow_alpha,  'arc', 0, 1, 15);
+
+IMAGE_ELLIPSEARC_wrapper(
+    $img, 400, 100, 80, 90, 181, 359, $green_alpha,   'arc', 0, 1, 15);
+
+IMAGE_ELLIPSEARC_wrapper(
+    $img, 500, 100, 80, 90, 180, 360, $blue_alpha,    'arc', 40, 1, 15);
+
+IMAGE_ELLIPSEARC_wrapper(
+    $img, 600, 100, 80, 90, 181, 359, $cyan_alpha,    'arc', 130, 1, 15);
+
+IMAGE_ELLIPSEARC_wrapper(
+    $img, 700, 100, 80, 90, 184, 356, $magenta_alpha, 'arc', 130, 1, 15);
+
+IMAGE_ELLIPSEARC_wrapper(
+    $img, 800, 100, 80, 90, 184, 356, $gray_alpha,    'arcflipv', 130, 1, 15);
+
+IMAGE_ELLIPSEARC_wrapper(
+    $img, 900, 100, 80, 90, 184, 356, $white_plain, 'arcflipvfliph', 130, 1, 15);
+
+$img_file_name = "sample_moon_crescents.png";
+
+header('Content-Type: image/png');
+imagepng($img, $img_file_name); // to save the image
+?>

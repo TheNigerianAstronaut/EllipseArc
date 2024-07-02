@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs for page EllipseArc.php</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="file-name">/EllipseArc.php</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-classes">Classes</a>
+			|													<a href="#sec-functions">Functions</a>
+			</div>
+	<div class="info-box-body">	
+		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Draws rotatable arcs, chords, segments, crescents and ellipses of  various thicknesses, including support for alpha colours</p>
+<p class="description"><p>EllipseArc attempts to address the &quot;thickness&quot; issues when drawing  arcs using built-in PHP functions like imagearc.</p><p>The following shape-types are supported</p><p><ol><li>Arcs: regular arcs with start and end angles</li><li>Chords: the inner arc tips are connected by a straight line. The
+      inner arc is not drawn.</li><li>TrueChords: an imaginary &quot;tchord&quot; line cuts the shape between the
+      outer tips. Part of the shape on either side of this line is
+      truncated. If the line crosses through the inner arc, a &quot;C&quot;
+      shape is produced, otherwise a &quot;D&quot; shape is produced.</li><li>Segments: also known as &quot;pie-slices&quot;. The start and end angles are
+      connected to the centre of the shape.</li><li>Ellipses: complete arcs whose width and height dimensions are
+      different.</li><li>Circles: complete arcs whose width and height dimensions are the
+      same.</li><li>Crescents: instead of uniform thickness within the shape, the inner
+      arc has separate width/height parameters thereby enabling a
+      crescent or &quot;eye&quot; shape to be formed.</li></ol></p><p>General features applicable to all shape-types</p><p><ol><li>Alpha colours are fully supported</li><li>Shapes can be rotated through any angle in the X-Y plane.</li><li>Shapes can be filled or just outlined</li><li>Large and small shapes are supported. Theoretically the shape has
+      to approach the sqrt(PHP_INT_MAX) limit before problems occur.
+      (However the server's memory limitations will probably kick in
+      long before then)</li><li>Shapes can be flipped horizontally around the Y-axis (the &quot;fliph&quot;
+      modifier)</li><li>Shapes can be flipped vertically around the X-axis (the &quot;flipv&quot;
+      modifier)</li><li>Shape complements can be taken (the &quot;comp&quot; modifier). In this case
+      the opposite section of the shape is drawn.</li></ol></p><p>The &quot;fliph&quot;, &quot;flipv&quot; and &quot;comp&quot; modifiers can be added       anywhere within the name of the desired shape, for example       &quot;arcflipvfliphcomp&quot; and &quot;arcfliphcompflipv&quot; will produce the       same result. They can also be added multiple times within the       same shape, however the modifier will only apply if it is       present an odd number of times in the shape's name. So       &quot;arcflipvcompfliphcompcomp&quot; will produce the same shape as the       previous two examples since the &quot;comp&quot; modifier occurs 3       times.</p><p>PHP version 5</p><p>LICENSE: This source file is subject to version 3.01 of the PHP license  that is available through the world-wide-web at the following URI:  http://www.php.net/license/3_01.txt.  If you did not receive a copy of  the PHP License and are unable to obtain it through the web, please  send a note to license@php.net so we can mail you a copy immediately.</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Austin Ekwebelam &lt;<a href="mailto:aekwebelam@hotmail.com">aekwebelam@hotmail.com</a>&gt;</li>
+				<li><span class="field">version:</span> SVN: 0.1.0</li>
+				<li><span class="field">copyright:</span> 1997-2011 The PHP Group</li>
+				<li><span class="field">link:</span> <a href="http://pear.php.net/package/EllipseArc">http://pear.php.net/package/EllipseArc</a></li>
+				<li><span class="field">todo:</span> Future improvements      <ol><li>Fine-tune tchord calculations so tangents can
+          be drawn without double-filling</li><li>Fine-tune tchord calculations for unfilled shapes
+          so P and Q are guaranteed to be the best values</li><li>Fine-tune _connectDots so the pixel after ($next_x,$next_y)
+          is factored in. This will avoid double-filling in cases
+          where the slope of the line changes sign at ($next_x,$next_y)</li><li>Allow the inner arc to be offset from the centre</li><li>Smoothing the left/right edges of inner arcs.  In small arcs
+          they appear clipped.</li><li>Allow a shape to truncate parts of the ellipse.
+          For example a rectangle can be inscribed in the
+          ellipse, so only the area outside the rectangle
+          gets drawn.</li></ol></li>
+				<li><span class="field">license:</span> <a href="http://www.php.net/license/3_01.txt">PHP License 3.01</a></li>
+			</ul>
+		
+			</div>
+</div>
+		
+	<a name="sec-classes"></a>	
+	<div class="info-box">
+		<div class="info-box-title">Classes</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Classes</span>
+			|																<a href="#sec-functions">Functions</a>
+					</div>
+		<div class="info-box-body">	
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../EllipseArc/Image_EllipseArc.html">Image_EllipseArc</a>
+					</td>
+					<td>
+											Draws rotatable arcs, chords, segments, crescents and ellipses of  various thicknesses, including support for alpha colours
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+	
+	
+	
+	<a name="sec-functions"></a>	
+	<div class="info-box">
+		<div class="info-box-title">Functions</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-classes">Classes</a>
+				|															<span class="disabled">Functions</span>
+		</div>
+		<div class="info-box-body">	
+			<a name="functionIMAGE_ELLIPSEARC_wrapper" id="functionIMAGE_ELLIPSEARC_wrapper"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="method-title">IMAGE_ELLIPSEARC_wrapper</span> (line <span class="line-number">210</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">A wrapper function to enable end-users to call EllipseArc in a  similar manner to imagearc and imagefilledarc calls It creates a  new Image_EllipseArc object, draws the shape and then unsets the  object.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> containing the following parameters:         string   $obj_shape        the standardised shape-type         int      $errors           the sum of the error-codes that                       were found when processing the shape. A value                       of 8 or higher will result in the shape not                       being drawn</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			IMAGE_ELLIPSEARC_wrapper
+		</span>
+					(<span class="var-type">resource</span>&nbsp;<span class="var-name">&$image</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$centre_x</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$centre_y</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$outer_width</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$outer_height</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$start_angle</span>, <span class="var-type">float</span>&nbsp;<span class="var-name">$end_angle</span>, <span class="var-type">resource</span>&nbsp;<span class="var-name">$arc_color</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$obj_shape</span> = <span class="var-default">&#039;arc&#039;</span>], [<span class="var-type">float</span>&nbsp;<span class="var-name">$alpha</span> = <span class="var-default">0</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$orig_thickness</span> = <span class="var-default">0</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$height_thickness</span> = <span class="var-default">null</span>])
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">resource</span>
+				<span class="var-name">&$image</span><span class="var-description">: a reference to the image object</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$centre_x</span><span class="var-description">: x-coordinate of the centre of the                       shape</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$centre_y</span><span class="var-description">: y-coordinate of the centre of the                       shape</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$outer_width</span><span class="var-description">: the full horizontal width of the                       shape, assuming it was a full unrotated                       ellipse</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$outer_height</span><span class="var-description">: the full vertical height of the                       shape, assuming it was a full unrotated                       ellipse</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$start_angle</span><span class="var-description">: the starting angle of the revised                       shape</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$end_angle</span><span class="var-description">: the ending angle of the revised                       shape</span>			</li>
+					<li>
+				<span class="var-type">resource</span>
+				<span class="var-name">$arc_color</span><span class="var-description">: a reference to the shape's colour                       from imagecolorallocate or                       imagecolorallocatealpha</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$obj_shape</span><span class="var-description">: the type of shape. Defaults to                       'arc'.</span>			</li>
+					<li>
+				<span class="var-type">float</span>
+				<span class="var-name">$alpha</span><span class="var-description">: the axis of rotation. Defaults to                       0.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$orig_thickness</span><span class="var-description">: the thickness. Defaults to 0. It                       can be either a single number (for uniform                       thickness) or a quoted string containing two                       numbers separated by a forward slash &quot;/&quot;. The                       first number is the thickness of the width and                       the second number is the thickness of the                       height. For either number, a negative value                       means that the preference is for the shape to                       be outlined instead of being filled. The shape                       will only be outlined if BOTH numbers are                       negative.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$height_thickness</span><span class="var-description">: <p>the optional thickness of the                       unrotated height. If supplied, overrides the                       height that the $orig_thickness parameter                       would have provided. It is a single number and                       it only modifies the height. Defaults to null.</p><p>If both $orig_thickness and $height_thickness are negative numbers,  the shape will be outlined instead of filled.</p></span>			</li>
+				</ul>
+		
+	
+</div>
+		</div>
+	</div>
+	
+	<p class="notes" id="credit">
+		Documentation generated on Sat, 10 Dec 2011 19:19:01 +1100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

@@ -1,0 +1,307 @@
+<html>
+<!doctype html public "-//W3C//DTD HTML 3.2 Final//EN">
+<head>
+	<title>EllipseArc-Megatest Samples</title>
+	<meta name="author" content="Austin Ekwebelam">
+	<meta name="author_email" content="aekwebelam@gmail.com">
+	<meta name="description" content="EllipseArc-Megatest Samples">
+
+	<link rel=stylesheet type="text/css" href="./css/doco.css">
+</head>
+<body>
+
+
+<div class="pagenav">
+<a href="ellipsearc_samples.htm"><strong>Prev:</strong> EllipseArc Samples</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<strong>Megatest Samples</strong>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<!--
+<a href="megatest_samples.htm"><strong>Next:</strong> Megatest Samples</a>
+-->
+</div>
+
+<h1>
+	<a name="megatest_intro"></a>
+	Introduction
+	<a href="#megatest_intro" class="section_anchor"></a>
+</h1>
+
+This page contains EllipseArc examples that were generated using the megatest.php utility, which draws various kinds of shapes, some of which are arcs.
+<br>
+I wrote megatest.php to help me perform multiple tests on EllipseArc shapes.
+<br>
+Megatest.php is <strong>NOT</strong> part of the EllipseArc package: it's an entirely separate utility. It is technically not supported.
+<br>
+
+
+<h1>
+	<a name="megatest_usage"></a>
+	Megatest Usage
+	<a href="#megatest_usage" class="section_anchor"></a>
+</h1>
+Megatest.php is executed from the command line. It reads a text file as input and produces an image which can be piped into an output image file:
+
+<pre class="prettyprint">
+php megatest.php "megatest_input_text_file" > "output_image_file"
+</pre>
+
+If executed without any arguments, it scans the current directory for any text files with a "megatest_input_file" prefix followed by two numeric digits. It will attempt to generate images for all these files.
+
+
+<h1>
+	<a name="megatest_arguments"></a>
+	Megatest Arguments
+	<a href="#megatest_arguments" class="section_anchor"></a>
+</h1>
+
+	<div id="usage" class="prettyprint">
+&lt;shape_id1&gt;=&lt;colour1&gt;=&lt;pct_transparency1&gt;=&lt;thickness&gt;,x1,y1,x2,y2,x3,y3|&lt;shape_id2&gt;...
+		<br>
+		<br>
+&lt;shape_id&gt;=&lt;colour&gt;=&lt;pct_transparency&gt;=&lt;thickness[/height_thickness]&gt;=ARC[TRIM][SMOOTH][FLIPV][FLIPH][COMP],&lt;rotation_angle&gt;,&lt;centre_x&gt;,&lt;centre_y&gt;,&lt;full_width&gt;,&lt;full_height&gt;,&lt;start_angle&gt;,&lt;end_angle&gt;
+		<br>
+		<br>
+&lt;shape_id&gt;=&lt;colour&gt;=&lt;pct_transparency&gt;=&lt;thickness[/height_thickness]&gt;=ARCCHORD[TRIM][SMOOTH][FLIPV][FLIPH][COMP],&lt;rotation_angle&gt;,&lt;centre_x&gt;,&lt;centre_y&gt;,&lt;full_width&gt;,&lt;full_height&gt;,&lt;start_angle&gt;,&lt;end_angle&gt;
+		<br>
+		<br>
+&lt;shape_id&gt;=&lt;colour&gt;=&lt;pct_transparency&gt;=&lt;thickness[/height_thickness]&gt;=ARCTRUECHORD[TRIM][SMOOTH][FLIPV][FLIPH][COMP],&lt;rotation_angle&gt;,&lt;centre_x&gt;,&lt;centre_y&gt;,&lt;full_width&gt;,&lt;full_height&gt;,&lt;start_angle&gt;,&lt;end_angle&gt;
+		<br>
+		<br>
+&lt;shape_id&gt;=&lt;colour&gt;=&lt;pct_transparency&gt;=&lt;thickness[/height_thickness]&gt;=ARCSEGMENT[TRIM][SMOOTH][FLIPV][FLIPH][COMP],&lt;rotation_angle&gt;,&lt;centre_x&gt;,&lt;centre_y&gt;,&lt;full_width&gt;,&lt;full_height&gt;,&lt;start_angle&gt;,&lt;end_angle&gt;
+		<br>
+		<br>
+&lt;shape_id&gt;=&lt;colour&gt;=&lt;pct_transparency&gt;=&lt;thickness[/height_thickness]&gt;=CIRCLE[TRIM][SMOOTH][FLIPV][FLIPH][COMP],&lt;rotation_angle&gt;,&lt;centre_x&gt;,&lt;centre_y&gt;,&lt;full_width&gt;
+		<br>
+		<br>
+&lt;shape_id&gt;=&lt;colour&gt;=&lt;pct_transparency&gt;=&lt;thickness[/height_thickness]&gt;=ELLIPSE[TRIM][SMOOTH][FLIPV][FLIPH][COMP],&lt;rotation_angle&gt;,&lt;centre_x&gt;,&lt;centre_y&gt;,&lt;full_width&gt;,&lt;full_height&gt;
+		<br>
+		<br>
+&lt;shape_id&gt;=&lt;colour&gt;=&lt;pct_transparency&gt;=&lt;thickness&gt;=LINE,&lt;start_x&gt;,&lt;start_y&gt;,&lt;end_x&gt;,&lt;end_y&gt;
+		<br>
+		<br>
+&lt;shape_id&gt;=&lt;colour&gt;=&lt;pct_transparency&gt;=&lt;thickness&gt;=LINEANGLE,&lt;start_x&gt;,&lt;start_y&gt;,&lt;line_angle&gt;,&lt;line_length&gt;
+		<br>
+		<br>
+&lt;shape_id&gt;=&lt;colour&gt;=&lt;pct_transparency&gt;=&lt;thickness&gt;=LINEGRAD,&lt;start_x&gt;,&lt;start_y&gt;,&lt;x_increment&gt;,&lt;y_increment&gt;,&lt;line_length&gt;
+		<br>
+		<br>
+&lt;shape_id&gt;=&lt;colour&gt;=&lt;pct_transparency&gt;=&lt;thickness&gt;=POINT,&lt;start_x&gt;,&lt;start_y&gt;,[&lt;fill_to_border_color&gt;]
+		<br>
+		<br>
+&lt;shape_id&gt;=&lt;colour&gt;=&lt;pct_transparency&gt;=&lt;thickness&gt;=POLYGON,&lt;x1&gt;,&lt;y1&gt;,&lt;x2&gt;,&lt;y2&gt;,&lt;x3&gt;,&lt;y3&gt...;
+		<br>
+		<br>
+&lt;shape_id&gt;=&lt;colour&gt;=&lt;pct_transparency&gt;=&lt;thickness&gt;=RECTANGLE,&lt;centre_x&gt;,&lt;centre_y&gt;,&lt;full_width&gt;,&lt;full_height&gt;
+		<br>
+		<br>
+&lt;shape_id&gt;=&lt;colour&gt;=&lt;pct_transparency&gt;=&lt;thickness&gt;=SQUARE,&lt;centre_x&gt;,&lt;centre_y&gt;,&lt;full_width&gt;;
+		<br>
+		<br>
+&lt;shape_id&gt;=&lt;colour&gt;=&lt;pct_transparency&gt;=&lt;thickness&gt;=TEXT,&lt;font&gt;,&lt;font_size&gt;&lt;startpoint_x&gt;,&lt;startpoint_y&gt;,&lt;text_angle&gt;,&lt;text&gt;;
+		<br>
+		<br>
+[BGIMGDIMS|CANVAS]=&lt;img_type&gt;=&lt;img_width&gt;=&lt;img_height&gt;=&lt;colour&gt;=&lt;pct_transparency&gt;=&lt;rotation_degrees&gt;=&lt;shrink_width&gt;=&lt;shrink_height&gt;	// For the background image
+		<br>
+		<br>
+IMAGEBORDER=&lt;colour&gt;=&lt;pct_transparency&gt;=&lt;thickness&gt;;
+		<br>
+		<br>
+MOVE=&lt;shape_id&gt;,&lt;delta_x&gt;,&lt;delta_y&gt;
+		<br>
+		<br>
+MOVEGROUP=&lt;group_id_prefix&gt;,&lt;delta_x&gt;,&lt;delta_y&gt;
+		<br>
+		<br>
+MOVEALL=&lt;delta_x&gt;,&lt;delta_y&gt;
+		<br>
+		<br>
+IMAGEFILE=&lt;output_image_file_name&gt;
+		<br>
+		<br>
+		<ul>
+			<li>The "<strong>|</strong>" character marks the end of a line entry</li>
+			<li>Use "<strong>//</strong>" to comment out a single line entry</li>
+			<li>Use the "<strong>|/*</strong>" and "<strong>*/|</strong>" pair to comment out a block of entries.</li>
+			<li>The "<strong>img_type</strong>" can be set to <strong>gif</strong>, <strong>jpg</strong>, <strong>png</strong></li>
+			<li>The "<strong>shape_id</strong>" label does not have to be unique: each line entry is processed independently of the others so the
+				exact same label can be used on different shapes.  However using unique labels makes it easier for you (the human... or alien)
+				to track what your shapes are doing.  It is also useful if you want to move a shape or group of shapes.</li>
+			<li>A positive "<strong>thickness</strong>" will thicken the lines of the object where relevant</li>
+			<li>A zero "<strong>thickness</strong>" will result in a solidly filled object where relevant</li>
+			<li>A negative "<strong>thickness</strong>" will result in a hollow object where relevant</li>
+			<li>"<strong>BGIMGDIMS</strong>" defines the background image dimensions ie the canvas</li>
+			<li>"<strong>CANVAS</strong>" is an alias for BGIMGDIMS</li>
+			<li>"<strong>IMAGEBORDER</strong>" will draw a border of the specified colour around the image.  It is the last thing drawn, so it will be on top of anything else that passes the border of the image.</li>
+			<li>"<strong>IMAGEFILE</strong>" saves the image to an output file with the name provided to this line.</li>
+			<li>"<strong>TRIM</strong>" causes the arc, circle or ellipse to remove the top and bottom tips which appear as pixels.  The resulting shape looks smoother, however it may also make the final shape look blocky</li>
+			<li>"<strong>SMOOTH</strong>" targets only pixels that stick out.  It is a softer option than TRIM.  Try SMOOTH before going for TRIM.</li>
+			<li>"<strong>MOVE</strong>" will move the shapes whose names exactly match &lt;shape_id&gt;</li>
+			<li>"<strong>MOVEGROUP</strong>" will move any shapes whose names contain the &lt;group_id_prefix&gt; string</li>
+			<li>"<strong>MOVEALL</strong>" will move all shapes in the canvas</li>
+			<li>"<strong>LINEA</strong>" is an alias for "<strong>LINEANGLE</strong>"</li>
+			<li>"<strong>LINEG</strong>" is an alias for "<strong>LINEGRAD</strong>"</li>
+			<li>"<strong>LINEGRADIENT</strong>" is an alias for "<strong>LINEGRAD</strong>" (rather long, innit?)</li>
+			<li>"<strong>ARCC</strong>" is an alias for "<strong>ARCCHORD</strong>"</li>
+			<li>"<strong>CHORD</strong>" is an alias for "<strong>ARCCHORD</strong>"</li>
+			<li>"<strong>PIE</strong>" is an alias for "<strong>ARCSEGMENT</strong>"</li>
+			<li>"<strong>ARCS</strong>" is an alias for "<strong>ARCSEGMENT</strong>"</li>
+			<li>"<strong>SEGMENT</strong>" is an alias for "<strong>ARCSEGMENT</strong>"</li>
+			<li>"<strong>ARCT</strong>" is an alias for "<strong>ARCTRUECHORD</strong>"</li>
+			<li>"<strong>TCHORD</strong>" is an alias for "<strong>ARCTRUECHORD</strong>"</li>
+			<li>"<strong>RECT</strong>" is an alias for "<strong>RECTANGLE</strong>"</li>
+			<li>"<strong>TEXT</strong>" entries permit you to use the newline character <strong>\n</strong> or you can press the <strong>ENTER</strong> key directly</li>
+			<li>"<strong>width_thickness/height_thickness</strong>" specify the internal thickness of the width and height</li>
+			<li>"If the internal thickness of an arc exceeds the width or height, the thickness defaults to zero - so the shape will be solidly filled.</li>
+			<li>"<strong>FLIPV</strong>" will flip the shape vertically.  An even number of FLIPV entries on the same shape will cancel out.</li>
+			<li>"<strong>FLIPH</strong>" will flip the shape horizontally.  An even number of FLIPH entries on the same shape will cancel out.</li>
+			<li>"<strong>COMP</strong>" will draw the complement (ie opposite side) of the shape.  An even number of COMP entries on the same shape will cancel out.</li>
+		</ul>
+	</div>
+
+
+
+<h1>
+	<a name="megatest_examples"></a>
+	Megatest Examples
+	<a href="#megatest_examples" class="section_anchor"></a>
+</h1>
+
+Click on each image to view it at full size in a new window.  You can also view the code.
+
+<ol>
+<!--
+########################################################
+boundary between entries
+########################################################
+-->
+	<li>
+		<a name="megatest_50_modifier_samples"></a>
+		Modifier samples
+		<a href="#megatest_50_modifier_samples" class="section_anchor"></a>
+		<br>
+		<a href="./samples/megatest/code/megatest_input_file50.txt" target="_blank">View the code</a>
+		<br>
+		<a href="./samples/megatest/images/megatest_50_modifier_samples.png" target="_blank"><img src="./samples/megatest/images/megatest_50_modifier_samples.png" height="100"></a>
+		<br>
+		<br>
+	</li>
+<!--
+########################################################
+boundary between entries
+########################################################
+-->
+	<li>
+		<a name="megatest_42_grid_tests"></a>
+		Grid Tests
+		<a href="#megatest_42_grid_tests" class="section_anchor"></a>
+		<br>
+		<a href="./samples/megatest/code/megatest_input_file42.txt" target="_blank">View the code</a>
+		<br>
+		<a href="./samples/megatest/images/megatest_42_grid_tests.png" target="_blank"><img src="./samples/megatest/images/megatest_42_grid_tests.png" height="100"></a>
+		<br>
+		<br>
+	</li>
+<!--
+########################################################
+boundary between entries
+########################################################
+-->
+	<li>
+		<a name="megatest_43b_grid_tests"></a>
+		More grid tests
+		<a href="#megatest_43b_grid_tests" class="section_anchor"></a>
+		<br>
+		<a href="./samples/megatest/code/megatest_input_file43b.txt" target="_blank">View the code</a>
+		<br>
+		<a href="./samples/megatest/images/megatest_43b_grid_tests.png" target="_blank"><img src="./samples/megatest/images/megatest_43b_grid_tests.png" height="100"></a>
+		<br>
+		<br>
+	</li>
+<!--
+########################################################
+boundary between entries
+########################################################
+-->
+	<li>
+		<a name="megatest_40_weird_tchord_tests"></a>
+		Weird tchord tests
+		<a href="#megatest_40_weird_tchord_tests" class="section_anchor"></a>
+		<br>
+		<a href="./samples/megatest/code/megatest_input_file40.txt" target="_blank">View the code</a>
+		<br>
+		<a href="./samples/megatest/images/megatest_40_weird_tchord_tests.png" target="_blank"><img src="./samples/megatest/images/megatest_40_weird_tchord_tests.png" height="100"></a>
+		<br>
+		<br>
+	</li>
+<!--
+########################################################
+boundary between entries
+########################################################
+-->
+	<li>
+		<a name="megatest_38c_general_shapes"></a>
+		General shapes
+		<a href="#megatest_38c_general_shapes" class="section_anchor"></a>
+		<br>
+		<a href="./samples/megatest/code/megatest_input_file38c.txt" target="_blank">View the code</a>
+		<br>
+		<a href="./samples/megatest/images/megatest_38c_general_shapes.png" target="_blank"><img src="./samples/megatest/images/megatest_38c_general_shapes.png" height="200"></a>
+		<br>
+		<br>
+	</li>
+<!--
+########################################################
+boundary between entries
+########################################################
+-->
+	<li>
+		<a name="megatest_27_testing_different_arc_shapes_300x250_thick10__70"></a>
+		Testing different arc shapes and thicknesses
+		<a href="#megatest_27_testing_different_arc_shapes_300x250_thick10__70" class="section_anchor"></a>
+		<br>
+		<a href="./samples/megatest/code/megatest_input_file27b.txt" target="_blank">View the code</a>
+		<br>
+		<a href="./samples/megatest/images/megatest_27_testing_different_arc_shapes_300x250_thick10__70.png" target="_blank"><img src="./samples/megatest/images/megatest_27_testing_different_arc_shapes_300x250_thick10__70.png" height="100"></a>
+		<br>
+		<br>
+	</li>
+<!--
+########################################################
+boundary between entries
+########################################################
+-->
+	<li>
+		<a name="megatest_29_tchords_40x40_thick10"></a>
+		Small tchords
+		<a href="#megatest_29_tchords_40x40_thick10" class="section_anchor"></a>
+		<br>
+		<a href="./samples/megatest/code/megatest_input_file29.txt" target="_blank">View the code</a>
+		<br>
+		<a href="./samples/megatest/images/megatest_29_tchords_40x40_thick10.png" target="_blank"><img src="./samples/megatest/images/megatest_29_tchords_40x40_thick10.png" height="100"></a>
+		<br>
+		<br>
+	</li>
+<!--
+########################################################
+boundary between entries
+########################################################
+-->
+</ol>
+
+
+
+
+<div class="pagenav">
+<a href="ellipsearc_usage.htm"><strong>Prev:</strong> Usage</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<strong>EllipseArc Samples</strong>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="megatest_samples.htm"><strong>Next:</strong> Megatest Samples</a>
+</div>
+
+</body>
+
+
+
+</html>

@@ -1,0 +1,98 @@
+<?php
+//
+// Demo showing arc rotations
+//
+
+require_once 'EllipseArc.php';
+
+$img_width = 1200;
+$img_height = 400;
+
+// create the image
+$img = imagecreatetruecolor($img_width, $img_height );
+
+// Allocate some plain colors
+$white_plain = imagecolorallocate($img, 0xff, 0xff, 0xff );
+
+// allocate some alpha colors at 20% transparency
+$trans = 20 * 127 / 100;
+
+$white_alpha   = imagecolorallocatealpha($img, 0xff, 0xff, 0xff, $trans);
+$red_alpha     = imagecolorallocatealpha($img, 0xff, 0x00, 0x00, $trans);
+$orange_alpha  = imagecolorallocatealpha($img, 0xff, 0x77, 0x00, $trans);
+$yellow_alpha  = imagecolorallocatealpha($img, 0xff, 0xff, 0x00, $trans);
+$green_alpha   = imagecolorallocatealpha($img, 0x00, 0xff, 0x00, $trans);
+$blue_alpha    = imagecolorallocatealpha($img, 0x00, 0x00, 0xff, $trans);
+$cyan_alpha    = imagecolorallocatealpha($img, 0x00, 0xff, 0xff, $trans);
+$magenta_alpha = imagecolorallocatealpha($img, 0xff, 0x00, 0xff, $trans);
+$gray_alpha    = imagecolorallocatealpha($img, 0x77, 0x77, 0x77, $trans);
+$black_alpha   = imagecolorallocatealpha($img, 0x00, 0x00, 0x00, $trans);
+
+// Set the background colour
+imagefilledrectangle($img, 0, 0,
+    ($img_width - 1), ($img_height - 1), $white_plain
+);
+
+
+//
+// The format is:
+// IMAGE_ELLIPSEARC_wrapper(
+//     image_id, centre_x, centre_y, width, height,
+//     start_angle, end_angle, color, shape,
+//     alpha_angle, width_thickness, height_thickness
+// );
+//
+
+
+//
+// This arc has been rotated in 30 degree increments
+//
+
+IMAGE_ELLIPSEARC_wrapper(
+    $img, 100, 100, 90, 80, 45, 0, $red_alpha,     'arc', 0,   20);
+
+IMAGE_ELLIPSEARC_wrapper(
+    $img, 200, 100, 90, 80, 45, 0, $orange_alpha,  'arc', 30,  20);
+
+IMAGE_ELLIPSEARC_wrapper(
+    $img, 300, 100, 90, 80, 45, 0, $yellow_alpha,  'arc', 60,  20);
+
+IMAGE_ELLIPSEARC_wrapper(
+    $img, 400, 100, 90, 80, 45, 0, $green_alpha,   'arc', 90,  20);
+
+IMAGE_ELLIPSEARC_wrapper(
+    $img, 500, 100, 90, 80, 45, 0, $blue_alpha,    'arc', 120, 20);
+
+IMAGE_ELLIPSEARC_wrapper(
+    $img, 600, 100, 90, 80, 45, 0, $cyan_alpha,    'arc', 150, 20);
+
+IMAGE_ELLIPSEARC_wrapper(
+    $img, 700, 100, 90, 80, 45, 0, $magenta_alpha, 'arc', 180, 20);
+
+IMAGE_ELLIPSEARC_wrapper(
+    $img, 100, 200, 90, 80, 45, 0, $gray_alpha,    'arc', 210, 20);
+
+IMAGE_ELLIPSEARC_wrapper(
+    $img, 200, 200, 90, 80, 45, 0, $black_alpha,   'arc', 240, 20);
+
+IMAGE_ELLIPSEARC_wrapper(
+    $img, 300, 200, 90, 80, 45, 0, $red_alpha,     'arc', 270, 20);
+
+IMAGE_ELLIPSEARC_wrapper(
+    $img, 400, 200, 90, 80, 45, 0, $orange_alpha,  'arc', 300, 20);
+
+IMAGE_ELLIPSEARC_wrapper(
+    $img, 500, 200, 90, 80, 45, 0, $yellow_alpha,  'arc', 330, 20);
+
+IMAGE_ELLIPSEARC_wrapper(
+    $img, 600, 200, 90, 80, 45, 0, $green_alpha,   'arc', 360, 20);
+
+IMAGE_ELLIPSEARC_wrapper(
+    $img, 700, 200, 90, 80, 45, 0, $blue_alpha,    'arc', 390, 20);
+
+
+$img_file_name = "sample_rotations_of_an_arc.png";
+
+header('Content-Type: image/png');
+imagepng($img, $img_file_name); // to save the image
+?>

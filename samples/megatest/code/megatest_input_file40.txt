@@ -1,0 +1,86 @@
+canvas=png=1300=900=#000000=0=0=100=100|
+imagefile=megatest_40_weird_tchord_tests.png|
+
+mytitle01=#ffffff=0=0=text,courbd,10,15,15,0,
+megatest 40: I just want to understand why the purple shape is the way it is 
+when you have the "40/10" dimensions for the width/height.  The spec is "shape_40/10=ff00ff=0=40/10=tchord,0,150,450,120,65,10,-120"
+
+|
+
+//moveall=100,100|
+
+//move=mytitle01,0,-100|
+
+movegroup=shape,0,150|
+
+movegroup=mylabelsh,130,45|
+
+movegroup=mylabelsv,20,150|
+
+
+
+
+
+mylabelsv_title=#ffffff=0=0=text,courbd,10,	0	,-35	,0,width/height|
+mylabelsv=#ffffff=0=0=text,courbd,	10,	0	,0	,0,10|
+mylabelsv=#ffffff=0=0=text,courbd,	10,	0	,150	,0,40|
+mylabelsv=#ffffff=0=0=text,courbd,	10,	0	,300	,0,10/40|
+mylabelsv=#ffffff=0=0=text,courbd,	10,	0	,450	,0,40/10|
+
+mylabelsh_title=#ffffff=0=0=text,courbd,10,	-60	,40	,0,Rotation|
+mylabelsh=#ffffff=0=0=text,courbd,	10,	0	,40	,0,   0|
+mylabelsh=#ffffff=0=0=text,courbd,	10,	150	,40	,0,   30|
+mylabelsh=#ffffff=0=0=text,courbd,	10,	300	,40	,0,   60|
+mylabelsh=#ffffff=0=0=text,courbd,	10,	450	,40	,0,   90|
+mylabelsh=#ffffff=0=0=text,courbd,	10,	600	,40	,0,  120|
+mylabelsh=#ffffff=0=0=text,courbd,	10,	750	,40	,0,  150|
+mylabelsh=#ffffff=0=0=text,courbd,	10,	900	,40	,0,  180|
+mylabelsh=#ffffff=0=0=text,courbd,	10,	1050	,40	,0,  210|
+
+
+//|
+
+shape_10___=0000ff=0=10=tchord,0	,150	,0	,120,65,10,-120|
+shape_10___=0000ff=0=10=tchord,30	,300	,0	,120,65,10,-120|
+shape_10___=0000ff=0=10=tchord,60	,450	,0	,120,65,10,-120|
+shape_10___=0000ff=0=10=tchord,90	,600	,0	,120,65,10,-120|
+shape_10___=0000ff=0=10=tchord,120	,750	,0	,120,65,10,-120|
+shape_10___=0000ff=0=10=tchord,150	,900	,0	,120,65,10,-120|
+shape_10___=0000ff=0=10=tchord,180	,1050	,0	,120,65,10,-120|
+shape_10___=0000ff=0=10=tchord,210	,1200	,0	,120,65,10,-120|
+
+//|
+
+shape_40___=ff0000=0=40=tchord,0	,150	,150	,120,65,10,-120|
+shape_40___=ff0000=0=40=tchord,30	,300	,150	,120,65,10,-120|
+shape_40___=ff0000=0=40=tchord,60	,450	,150	,120,65,10,-120|
+shape_40___=ff0000=0=40=tchord,90	,600	,150	,120,65,10,-120|
+shape_40___=ff0000=0=40=tchord,120	,750	,150	,120,65,10,-120|
+shape_40___=ff0000=0=40=tchord,150	,900	,150	,120,65,10,-120|
+shape_40___=ff0000=0=40=tchord,180	,1050	,150	,120,65,10,-120|
+shape_40___=ff0000=0=40=tchord,210	,1200	,150	,120,65,10,-120|
+
+//|
+
+shape_10/40=00ff00=0=10/40=tchord,0	,150	,300	,120,65,10,-120|
+shape_10/40=00ff00=0=10/40=tchord,30	,300	,300	,120,65,10,-120|
+shape_10/40=00ff00=0=10/40=tchord,60	,450	,300	,120,65,10,-120|
+shape_10/40=00ff00=0=10/40=tchord,90	,600	,300	,120,65,10,-120|
+shape_10/40=00ff00=0=10/40=tchord,120	,750	,300	,120,65,10,-120|
+shape_10/40=00ff00=0=10/40=tchord,150	,900	,300	,120,65,10,-120|
+shape_10/40=00ff00=0=10/40=tchord,180	,1050	,300	,120,65,10,-120|
+shape_10/40=00ff00=0=10/40=tchord,210	,1200	,300	,120,65,10,-120|
+
+//|
+
+shape_40/10=ff00ff=0=40/10=tchord,0	,150	,450	,120,65,10,-120|
+shape_40/10=ff00ff=0=40/10=tchord,30	,300	,450	,120,65,10,-120|
+shape_40/10=ff00ff=0=40/10=tchord,60	,450	,450	,120,65,10,-120|
+shape_40/10=ff00ff=0=40/10=tchord,90	,600	,450	,120,65,10,-120|
+shape_40/10=ff00ff=0=40/10=tchord,120	,750	,450	,120,65,10,-120|
+shape_40/10=ff00ff=0=40/10=tchord,150	,900	,450	,120,65,10,-120|
+shape_40/10=ff00ff=0=40/10=tchord,180	,1050	,450	,120,65,10,-120|
+shape_40/10=ff00ff=0=40/10=tchord,210	,1200	,450	,120,65,10,-120|
+
+
+

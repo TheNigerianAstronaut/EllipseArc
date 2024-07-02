@@ -1,0 +1,123 @@
+
+
+canvas=png=1300=700=#000000=0=0=100=100|
+
+imagefile=megatest_43_grid_tests.png|
+mytitle01=#ffffff=0=0=text,courbd,10,15,15,0,Test 43== Testing that grids make a difference at the pixel levels.
+Rows 1, 2, 3 & 4 have rotation angles of 0, 30, 60 & 90 respectively.  The horizontal lines are at plus/minus 30 pixels from the centres.
+All shapes are circles.
+|
+
+move=mytitle01,0,-100|
+
+moveall=40,100|
+
+movegroup=mylabel,-50,-75|
+
+mylabels=#ffffff=0=0=text,courbd,10,	00	,40,0,   r=50|
+mylabels=#ffffff=0=0=text,courbd,10,	80	,40,0,   r=51|
+mylabels=#ffffff=0=0=text,courbd,10,	160	,40,0,   r=52|
+mylabels=#ffffff=0=0=text,courbd,10,	240	,40,0,   r=53|
+mylabels=#ffffff=0=0=text,courbd,10,	320	,40,0,   r=54|
+mylabels=#ffffff=0=0=text,courbd,10,	400	,40,0,   r=55|
+mylabels=#ffffff=0=0=text,courbd,10,	480	,40,0,   r=56|
+mylabels=#ffffff=0=0=text,courbd,10,	560	,40,0,   r=57|
+mylabels=#ffffff=0=0=text,courbd,10,	640	,40,0,   r=58|
+mylabels=#ffffff=0=0=text,courbd,10,	720	,40,0,   r=59|
+mylabels=#ffffff=0=0=text,courbd,10,	800	,40,0,   r=60|
+mylabels=#ffffff=0=0=text,courbd,10,	880	,40,0,   r=61|
+mylabels=#ffffff=0=0=text,courbd,10,	960	,40,0,   r=62|
+mylabels=#ffffff=0=0=text,courbd,10,	1040	,40,0,   r=63|
+mylabels=#ffffff=0=0=text,courbd,10,	1120	,40,0,   r=64|
+mylabels=#ffffff=0=0=text,courbd,10,	1200	,40,0,   r=65|
+
+
+//|
+
+
+shape01_line_at_plus_30	=ffffff=0=1=lineangle,-100,30,0,1400,|
+shape01_line_at_minus_30=f0f0f0=0=1=lineangle,-100,-30,0,1400,|
+shape01a_circle		=ff0000=0=10=circle	,0,	00	,0,50,80,-45,-90|
+shape01b_circle		=0ff000=0=10=circle	,0,	80	,0,51,80,-45,-90|
+shape01c_circle		=00ff00=0=10=circle	,0,	160	,0,52,80,-45,-90|
+shape01d_circle		=000ff0=0=10=circle	,0,	240	,0,53,80,-45,-90|
+shape01e_circle		=0000ff=0=10=circle	,0,	320	,0,54,80,-45,-90|
+shape01f_circle		=ff4444=0=10=circle	,0,	400	,0,55,80,-45,-90|
+shape01g_circle		=4ff444=0=10=circle	,0,	480	,0,56,80,-45,-90|
+shape01h_circle		=44ff44=0=10=circle	,0,	560	,0,57,80,-45,-90|
+shape01i_circle		=444ff4=0=10=circle	,0,	640	,0,58,80,-45,-90|
+shape01j_circle		=4444ff=0=10=circle	,0,	720	,0,59,80,-45,-90|
+shape01k_circle		=ff8888=0=10=circle	,0,	800	,0,60,80,-45,-90|
+shape01l_circle		=8ff888=0=10=circle	,0,	880	,0,61,80,-45,-90|
+shape01m_circle		=88ff88=0=10=circle	,0,	960	,0,62,80,-45,-90|
+shape01n_circle		=888ff8=0=10=circle	,0,	1040	,0,63,80,-45,-90|
+shape01o_circle		=8888ff=0=10=circle	,0,	1120	,0,64,80,-45,-90|
+shape01p_circle		=ffcccc=0=10=circle	,0,	1200	,0,65,80,-45,-90|
+
+//|
+
+movegroup=shape02,0,100|
+shape02_line_at_plus_30	=ffffff=0=1=lineangle,-100,30,0,1400,|
+shape02_line_at_minus_30=f0f0f0=0=1=lineangle,-100,-30,0,1400,|
+shape02a_circle		=ff0000=0=10=circle	,30,	00	,0,50,80,-45,-90|
+shape02b_circle		=0ff000=0=10=circle	,30,	80	,0,51,80,-45,-90|
+shape02c_circle		=00ff00=0=10=circle	,30,	160	,0,52,80,-45,-90|
+shape02d_circle		=000ff0=0=10=circle	,30,	240	,0,53,80,-45,-90|
+shape02e_circle		=0000ff=0=10=circle	,30,	320	,0,54,80,-45,-90|
+shape02f_circle		=ff4444=0=10=circle	,30,	400	,0,55,80,-45,-90|
+shape02g_circle		=4ff444=0=10=circle	,30,	480	,0,56,80,-45,-90|
+shape02h_circle		=44ff44=0=10=circle	,30,	560	,0,57,80,-45,-90|
+shape02i_circle		=444ff4=0=10=circle	,30,	640	,0,58,80,-45,-90|
+shape02j_circle		=4444ff=0=10=circle	,30,	720	,0,59,80,-45,-90|
+shape02k_circle		=ff8888=0=10=circle	,30,	800	,0,60,80,-45,-90|
+shape02l_circle		=8ff888=0=10=circle	,30,	880	,0,61,80,-45,-90|
+shape02m_circle		=88ff88=0=10=circle	,30,	960	,0,62,80,-45,-90|
+shape02n_circle		=888ff8=0=10=circle	,30,	1040	,0,63,80,-45,-90|
+shape02o_circle		=8888ff=0=10=circle	,30,	1120	,0,64,80,-45,-90|
+shape02p_circle		=ffcccc=0=10=circle	,30,	1200	,0,65,80,-45,-90|
+
+//|
+
+movegroup=shape03,0,200|
+shape03_line_at_plus_30	=ffffff=0=1=lineangle,-100,30,0,1400,|
+shape03_line_at_minus_30=f0f0f0=0=1=lineangle,-100,-30,0,1400,|
+shape03a_circle		=ff0000=0=10=circle	,60,	00	,0,50,80,-45,-90|
+shape03b_circle		=0ff000=0=10=circle	,60,	80	,0,51,80,-45,-90|
+shape03c_circle		=00ff00=0=10=circle	,60,	160	,0,52,80,-45,-90|
+shape03d_circle		=000ff0=0=10=circle	,60,	240	,0,53,80,-45,-90|
+shape03e_circle		=0000ff=0=10=circle	,60,	320	,0,54,80,-45,-90|
+shape03f_circle		=ff4444=0=10=circle	,60,	400	,0,55,80,-45,-90|
+shape03g_circle		=4ff444=0=10=circle	,60,	480	,0,56,80,-45,-90|
+shape03h_circle		=44ff44=0=10=circle	,60,	560	,0,57,80,-45,-90|
+shape03i_circle		=444ff4=0=10=circle	,60,	640	,0,58,80,-45,-90|
+shape03j_circle		=4444ff=0=10=circle	,60,	720	,0,59,80,-45,-90|
+shape03k_circle		=ff8888=0=10=circle	,60,	800	,0,60,80,-45,-90|
+shape03l_circle		=8ff888=0=10=circle	,60,	880	,0,61,80,-45,-90|
+shape03m_circle		=88ff88=0=10=circle	,60,	960	,0,62,80,-45,-90|
+shape03n_circle		=888ff8=0=10=circle	,60,	1040	,0,63,80,-45,-90|
+shape03o_circle		=8888ff=0=10=circle	,60,	1120	,0,64,80,-45,-90|
+shape03p_circle		=ffcccc=0=10=circle	,60,	1200	,0,65,80,-45,-90|
+
+//|
+
+movegroup=shape04,0,300|
+shape04_line_at_plus_30	=ffffff=0=1=lineangle,-100,30,0,1400,|
+shape04_line_at_minus_30=f0f0f0=0=1=lineangle,-100,-30,0,1400,|
+shape04a_circle		=ff0000=0=10=circle	,90,	00	,0,50,80,-45,-90|
+shape04b_circle		=0ff000=0=10=circle	,90,	80	,0,51,80,-45,-90|
+shape04c_circle		=00ff00=0=10=circle	,90,	160	,0,52,80,-45,-90|
+shape04d_circle		=000ff0=0=10=circle	,90,	240	,0,53,80,-45,-90|
+shape04e_circle		=0000ff=0=10=circle	,90,	320	,0,54,80,-45,-90|
+shape04f_circle		=ff4444=0=10=circle	,90,	400	,0,55,80,-45,-90|
+shape04g_circle		=4ff444=0=10=circle	,90,	480	,0,56,80,-45,-90|
+shape04h_circle		=44ff44=0=10=circle	,90,	560	,0,57,80,-45,-90|
+shape04i_circle		=444ff4=0=10=circle	,90,	640	,0,58,80,-45,-90|
+shape04j_circle		=4444ff=0=10=circle	,90,	720	,0,59,80,-45,-90|
+shape04k_circle		=ff8888=0=10=circle	,90,	800	,0,60,80,-45,-90|
+shape04l_circle		=8ff888=0=10=circle	,90,	880	,0,61,80,-45,-90|
+shape04m_circle		=88ff88=0=10=circle	,90,	960	,0,62,80,-45,-90|
+shape04n_circle		=888ff8=0=10=circle	,90,	1040	,0,63,80,-45,-90|
+shape04o_circle		=8888ff=0=10=circle	,90,	1120	,0,64,80,-45,-90|
+shape04p_circle		=ffcccc=0=10=circle	,90,	1200	,0,65,80,-45,-90|
+
+//|

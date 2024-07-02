@@ -1,0 +1,35 @@
+/*
+Please note: the parameters in this file were taken directly from css files I downloaded code.google.com.
+*/
+pre.prettyprint {
+	padding: 0.5em;
+	overflow: auto;
+	font-family: 'Courier New', Monaco, 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Lucida Console', monospace;
+/*
+	font-size: 83%;
+*/
+	font-size: 12px;
+	background-color: #eeeeee;
+}
+
+div.prettyprint {
+	padding: 0.5em;
+	overflow: auto;
+	font-family: 'Courier New', Monaco, 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Lucida Console', monospace;
+/*
+	font-size: 83%;
+*/
+	font-size: 12px;
+	background-color: #eeeeee;
+}
+
+div.pagenav {
+	padding: 0.5em;
+	overflow: auto;
+	font-family: 'Courier New', Monaco, 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Lucida Console', monospace;
+/*
+	font-size: 83%;
+*/
+	font-size: 12px;
+	background-color: #eeeeee;
+}
