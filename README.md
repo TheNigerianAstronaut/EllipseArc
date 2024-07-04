@@ -85,7 +85,7 @@ There are some workarounds for these issues:
 		<br>
   </li>
 </ol>
-<p>Below is the equation EllipseArc uses:
+<p>Below are the equations EllipseArc uses:
 		<br>
 		<img src="./images/EllipseArc_equation.png">
 		<br>
