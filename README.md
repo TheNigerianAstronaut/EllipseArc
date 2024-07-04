@@ -110,4 +110,4 @@ There are some workarounds for these issues:
 		<br>
     Check out the examples to see how it works!
 </p>
-<a href="ellipsearc_samples.htm"><strong>Next:</strong> EllipseArc Samples</a>
+
